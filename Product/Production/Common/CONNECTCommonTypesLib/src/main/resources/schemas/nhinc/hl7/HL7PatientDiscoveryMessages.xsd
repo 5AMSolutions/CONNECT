@@ -27,11 +27,11 @@
 	<xsd:include schemaLocation="PIXConsumer_PRPA_Request.xsd"/>
     ==================================================================== -->
     
-    <xsd:import namespace="urn:hl7-org:v3" schemaLocation="PIXConsumer_PRPA_Request.xsd"/>
-    <xsd:import namespace="urn:hl7-org:v3" schemaLocation="HL7Messages.xsd"/>
-    <xsd:import namespace="urn:hl7-org:v3" schemaLocation="RespondingGateway_PRPA_IN201305UV02Request.xsd"/>
-    <xsd:import namespace="urn:hl7-org:v3" schemaLocation="RespondingGateway_PRPA_IN201306UV02Request.xsd"/>
-    <xsd:import namespace="urn:hl7-org:v3" schemaLocation="RespondingGateway_PRPA_IN201306UV02Response.xsd"/>
-    <xsd:import namespace="urn:hl7-org:v3" schemaLocation="HL7Messages.xsd"/>
-    <xsd:import namespace="urn:hl7-org:v3" schemaLocation="AsyncAdapterPatientDiscoveryErrorRequest.xsd"/>
+    <xsd:include schemaLocation="PIXConsumer_PRPA_Request.xsd"/>
+    <xsd:include schemaLocation="HL7Messages.xsd"/>
+    <xsd:include schemaLocation="RespondingGateway_PRPA_IN201305UV02Request.xsd"/>
+    <xsd:include schemaLocation="RespondingGateway_PRPA_IN201306UV02Request.xsd"/>
+    <xsd:include schemaLocation="RespondingGateway_PRPA_IN201306UV02Response.xsd"/>
+    <xsd:include schemaLocation="HL7Messages.xsd"/>
+    <xsd:include schemaLocation="AsyncAdapterPatientDiscoveryErrorRequest.xsd"/>
 </xsd:schema>

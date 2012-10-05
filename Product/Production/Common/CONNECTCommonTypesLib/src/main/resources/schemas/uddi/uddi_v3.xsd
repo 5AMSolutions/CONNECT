@@ -20,7 +20,7 @@
 	Copyright (c) OASIS Open 2002-2004. All Rights Reserved.
 	-->
 	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="../www.w3.org/2001/xml.xsd"/>
-        <xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="../../schemas/www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" />
+    <xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="../../schemas/www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" />
 
         <!-- Attribute type definitions -->
     <xsd:simpleType name="uddiKey" scc14n:caseMapKind="fold">
@@ -75,11 +75,9 @@
 	<xsd:simpleType name="deleted" final="restriction">
 		<xsd:restriction base="xsd:boolean"/>
 	</xsd:simpleType>
-<!--
 	<xsd:simpleType name="timeInstant" final="restriction">
 		<xsd:restriction base="xsd:dateTime"/>
 	</xsd:simpleType>
--->
 	<xsd:simpleType name="truncated" final="restriction">
 		<xsd:restriction base="xsd:boolean"/>
 	</xsd:simpleType>
@@ -159,13 +157,13 @@
     This type has a problem with JAXB - since it derives by restriction it causes trouble.  Doing a
     replacement of everywhere authInfo is used and putting that type to xsd:string.  Gives the same
     XML string, but gets through JAXB better.
-    
+-->    
 	<xsd:element name="authInfo" final="restriction">
 		<xsd:simpleType>
 			<xsd:restriction base="xsd:string"/>
 		</xsd:simpleType>
 	</xsd:element>
--->
+
 	<xsd:element name="bindingKey" type="uddi:bindingKey" final="restriction"/>
 	<xsd:element name="bindingTemplate" type="uddi:bindingTemplate" final="restriction"/>
 	<xsd:complexType name="bindingTemplate" final="restriction">

@@ -7,7 +7,7 @@ RoseTree XML to Schema: $Id: VocabXMLtoXSD.xsl,v 1.8 2007/03/20 02:48:50 wbeeler
     			<jaxb:globalBindings typesafeEnumMaxMembers="337" />
   		</xs:appinfo>
 	</xs:annotation>
-	<xs:include schemaLocation="datatypes.xsd"/>
+	<xs:include schemaLocation="datatypes-base.xsd"/>
 	<xs:simpleType name="Classes">
 		<xs:restriction base="cs"/>
 	</xs:simpleType>
