@@ -177,22 +177,26 @@
             <arg value="-v" />
             <arg value="-uroot" />
             <arg value="-p${mysql.system.password}" />
+            <arg value="-h${mysql.host}" />
         </exec>
         <exec failonerror="true" executable="${mysql.executable}" dir="${sql.scripts.dir}" input="${sql.scripts.dir}/nhincdb.sql">
             <arg value="-v" />
             <arg value="-uroot" />
             <arg value="-p${mysql.system.password}" />
+            <arg value="-h${mysql.host}" />
         </exec>
         <exec failonerror="true" executable="${mysql.executable}" dir="${sql.scripts.dir}" input="${sql.scripts.dir}/populateTestData.sql">
             <arg value="-v" />
             <arg value="-uroot" />
             <arg value="-p${mysql.system.password}" />
+            <arg value="-h${mysql.host}" />
         </exec>
         <echo file="${temp.dir}/show.databases.sql" message="SHOW DATABASES;" />
         <exec failonerror="true" executable="${mysql.executable}" dir="${temp.dir}" input="${temp.dir}/show.databases.sql">
             <arg value="-v" />
             <arg value="-uroot" />
             <arg value="-p${mysql.system.password}" />
+            <arg value="-h${mysql.host}" />
         </exec>
         <echo file="${temp.dir}/privileges.sql">GRANT ALL PRIVILEGES ON *.* TO 'nhincuser'@'localhost' IDENTIFIED BY 'nhincpass' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'nhincuser'@'127.0.0.1' IDENTIFIED BY 'nhincpass' WITH GRANT OPTION;
@@ -202,10 +206,12 @@ FLUSH PRIVILEGES;
             <arg value="-v" />
             <arg value="-uroot" />
             <arg value="-p${mysql.system.password}" />
+            <arg value="-h${mysql.host}" />
         </exec>
         <exec failonerror="true" executable="${mysql.executable}" dir="${basedir}">
             <arg value="-unhincuser" />
             <arg value="-pnhincpass" />
+            <arg value="-h${mysql.host}" />
         </exec>
         <echo message="databases are successfully installed." />
     </target>
