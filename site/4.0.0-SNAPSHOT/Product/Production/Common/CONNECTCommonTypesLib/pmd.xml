@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2012-10-11T18:03:55.935">
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCommonTypesLib/src/main/java/gov/hhs/fha/nhinc/tools/ws/processor/generator/ServicePropertyLoader.java">
+<violation beginline="30" endline="30" begincolumn="1" endcolumn="46" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.tools.ws.processor.generator" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.lang.management.ManagementFactory'
+</violation>
+<violation beginline="31" endline="31" begincolumn="1" endcolumn="42" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.tools.ws.processor.generator" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.lang.management.RuntimeMXBean'
+</violation>
+<violation beginline="32" endline="32" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.tools.ws.processor.generator" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.List'
+</violation>
+</file>
+</pmd>
