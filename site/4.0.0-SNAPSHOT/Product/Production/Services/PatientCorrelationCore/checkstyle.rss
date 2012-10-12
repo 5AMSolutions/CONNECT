@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>CONNECT Patient Correlation Core - Checkstyle report</title>
+    <link>www.connectopensource.org/Product/Production/Services/PatientCorrelationCore</link>
+    <description>CONNECT Patient Correlation Core - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2012</copyright>
+    <item>
+      <title>File: 12,
+             Errors: 388,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html</link>
+      <description>
+        <p>Click <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.description.PatientCorrelationRetrieveServicePortDescriptor.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/description/PatientCorrelationRetrieveServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.description.AbstractSecuredServicePortDescriptor.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/description/AbstractSecuredServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  25
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.PatientCorrelationProxyWebServiceSecuredImpl.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/PatientCorrelationProxyWebServiceSecuredImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  83
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.description.PatientCorrelationSecuredAddServicePortDescriptor.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/description/PatientCorrelationSecuredAddServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.PatientCorrelationProxy.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/PatientCorrelationProxy.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  36
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.PatientCorrelationProxyJavaImpl.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/PatientCorrelationProxyJavaImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  43
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.description.PatientCorrelationAddServicePortDescriptor.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/description/PatientCorrelationAddServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.PatientCorrelationProxyObjectFactory.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/PatientCorrelationProxyObjectFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  38
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.description.PatientCorrelationSecuredRetrieveServicePortDescriptor.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/description/PatientCorrelationSecuredRetrieveServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.description.AbstractServicePortDescriptor.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/description/AbstractServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.PatientCorrelationProxyWebServiceUnsecuredImpl.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/PatientCorrelationProxyWebServiceUnsecuredImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  72
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/PatientCorrelationCore/checkstyle.html#gov.hhs.fha.nhinc.patientcorrelation.nhinc.proxy.PatientCorrelationProxyNoOpImpl.java">gov/hhs/fha/nhinc/patientcorrelation/nhinc/proxy/PatientCorrelationProxyNoOpImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  42
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
