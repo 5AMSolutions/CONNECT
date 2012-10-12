@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2012-10-11T20:11:03.134">
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/AuditRepositoryCore/src/main/java/gov/hhs/fha/nhinc/auditrepository/nhinc/AuditRepositoryOrchImpl.java">
+<violation beginline="264" endline="264" begincolumn="35" endcolumn="37" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.auditrepository.nhinc" class="AuditRepositoryOrchImpl" method="buildAuditReponseType" variable="act" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'act'.
+</violation>
+<violation beginline="332" endline="332" begincolumn="20" endcolumn="87" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.auditrepository.nhinc" class="AuditRepositoryOrchImpl" method="convertXMLGregorianCalendarToString" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'convertXMLGregorianCalendarToString(XMLGregorianCalendar)'.
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/AuditRepositoryCore/src/main/java/gov/hhs/fha/nhinc/auditrepository/nhinc/proxy/AuditRepositoryProxyJavaImpl.java">
+<violation beginline="43" endline="43" begincolumn="17" endcolumn="19" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.auditrepository.nhinc.proxy" class="AuditRepositoryProxyJavaImpl" variable="log" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'log'.
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/AuditRepositoryCore/src/main/java/gov/hhs/fha/nhinc/auditrepository/nhinc/proxy/AuditRepositoryProxyNoOpImpl.java">
+<violation beginline="32" endline="32" begincolumn="1" endcolumn="92" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.auditrepository.nhinc.proxy" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'gov.hhs.fha.nhinc.common.nhinccommonadapter.FindCommunitiesAndAuditEventsRequestType'
+</violation>
+<violation beginline="33" endline="33" begincolumn="1" endcolumn="93" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.auditrepository.nhinc.proxy" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'gov.hhs.fha.nhinc.common.nhinccommonadapter.FindCommunitiesAndAuditEventsResponseType'
+</violation>
+</file>
+</pmd>
