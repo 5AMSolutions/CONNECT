@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="17" tokens="199">
+<file line="215" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/XACMLExtractor.java"/>
+<file line="262" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/XACMLExtractor.java"/>
+<codefragment>
+<![CDATA[
+    private UserIdFormatType extractUserIdFormatFromSubject(RuleType oRule) {
+        // Extract any values from the Resource section...
+        // ------------------------------------------------
+        if ((oRule != null) && (oRule.getTarget() != null) && (oRule.getTarget().getSubjects() != null)
+                && (oRule.getTarget().getSubjects().getSubject() != null)
+                && (oRule.getTarget().getSubjects().getSubject().size() > 0)) {
+            List<SubjectType> olSubject = oRule.getTarget().getSubjects().getSubject();
+            for (SubjectType oSubject : olSubject) {
+                if ((oSubject != null) && (oSubject.getSubjectMatch() != null)
+                        && (oSubject.getSubjectMatch().size() > 0)) {
+                    List<SubjectMatchType> olSubjMatch = oSubject.getSubjectMatch();
+                    for (SubjectMatchType oSubjMatch : olSubjMatch) {
+                        if ((oSubjMatch != null)
+                                && (oSubjMatch.getSubjectAttributeDesignator() != null)
+                                && (oSubjMatch.getSubjectAttributeDesignator().getAttributeId() != null)
+                                && (oSubjMatch.getSubjectAttributeDesignator().getAttributeId()
+                                        .equals(XACMLConstants.SUBJECT_USER_ID))
+]]>
+</codefragment>
+</duplication>
+<duplication lines="12" tokens="155">
+<file line="387" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/PatientConsentDocumentBuilderHelper.java"/>
+<file line="413" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/PatientConsentDocumentBuilderHelper.java"/>
+<codefragment>
+<![CDATA[
+    private void setServiceStartTime(List<oasis.names.tc.ebxml_regrep.xsd.rim._3.SlotType1> oSlots,
+            PatientPreferencesType oPtPref, oasis.names.tc.ebxml_regrep.xsd.rim._3.ObjectFactory oRimObjectFactory,
+            String sDocUniqueId, String sMimeType) {
+        if ((oSlots != null) && (oRimObjectFactory != null)) {
+            if (oPtPref != null) {
+                if (PDF_MIME_TYPE.equals(sMimeType) && oPtPref.getBinaryDocumentPolicyCriteria() != null
+                        && oPtPref.getBinaryDocumentPolicyCriteria().getBinaryDocumentPolicyCriterion() != null
+                        && !oPtPref.getBinaryDocumentPolicyCriteria().getBinaryDocumentPolicyCriterion().isEmpty()) {
+                    for (BinaryDocumentPolicyCriterionType eachBinaryDocumentPolicyCriteria : oPtPref
+                            .getBinaryDocumentPolicyCriteria().getBinaryDocumentPolicyCriterion()) {
+                        if (sDocUniqueId.equals(eachBinaryDocumentPolicyCriteria.getDocumentUniqueId())) {
+                            oSlots.add(createSlot(oRimObjectFactory, CDAConstants.SLOT_NAME_SERVICE_START_TIME,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="155">
+<file line="75" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/QueryUtil.java"/>
+<file line="184" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/QueryUtil.java"/>
+<codefragment>
+<![CDATA[
+        if ((oResponse != null) && (oResponse.getRegistryObjectList() != null)
+                && (oResponse.getRegistryObjectList().getIdentifiable() != null)
+                && (oResponse.getRegistryObjectList().getIdentifiable().size() > 0)) {
+            List<JAXBElement<? extends IdentifiableType>> olRegObjs = oResponse.getRegistryObjectList()
+                    .getIdentifiable();
+
+            for (JAXBElement<? extends IdentifiableType> oJAXBObj : olRegObjs) {
+                if ((oJAXBObj != null)
+                        && (oJAXBObj.getDeclaredType() != null)
+                        && (oJAXBObj.getDeclaredType().getCanonicalName() != null)
+                        && (oJAXBObj.getDeclaredType().getCanonicalName()
+                                .equals("oasis.names.tc.ebxml_regrep.xsd.rim._3.ExtrinsicObjectType"))
+                        && (oJAXBObj.getValue() != null)) {
+                    ExtrinsicObjectType oExtObj = (ExtrinsicObjectType) oJAXBObj.getValue();
+]]>
+</codefragment>
+</duplication>
+<duplication lines="15" tokens="147">
+<file line="113" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/XACMLExtractor.java"/>
+<file line="144" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/XACMLExtractor.java"/>
+<codefragment>
+<![CDATA[
+        boolean bReturnVal = false;
+
+        if ((oConsentXACML != null)
+                && (oConsentXACML.getCombinerParametersOrRuleCombinerParametersOrVariableDefinition() != null)
+                && (oConsentXACML.getCombinerParametersOrRuleCombinerParametersOrVariableDefinition().size() == 1)
+                && (oConsentXACML.getCombinerParametersOrRuleCombinerParametersOrVariableDefinition().get(0) instanceof RuleType)) {
+            RuleType oRule = (RuleType) oConsentXACML
+                    .getCombinerParametersOrRuleCombinerParametersOrVariableDefinition().get(0);
+
+            // Make sure that the target is null or if there is a target, that it has no children.
+            // -------------------------------------------------------------------------------------
+            if ((oRule.getTarget() == null)
+                    || ((oRule.getTarget() != null) && (oRule.getTarget().getActions() == null)
+                            && (oRule.getTarget().getEnvironments() == null)
+                            && (oRule.getTarget().getResources() == null) && (oRule.getTarget().getSubjects() == null))) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="11" tokens="145">
+<file line="387" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/PatientConsentDocumentBuilderHelper.java"/>
+<file line="413" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/PatientConsentDocumentBuilderHelper.java"/>
+<file line="438" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/PatientConsentDocumentBuilderHelper.java"/>
+<codefragment>
+<![CDATA[
+    private void setServiceStartTime(List<oasis.names.tc.ebxml_regrep.xsd.rim._3.SlotType1> oSlots,
+            PatientPreferencesType oPtPref, oasis.names.tc.ebxml_regrep.xsd.rim._3.ObjectFactory oRimObjectFactory,
+            String sDocUniqueId, String sMimeType) {
+        if ((oSlots != null) && (oRimObjectFactory != null)) {
+            if (oPtPref != null) {
+                if (PDF_MIME_TYPE.equals(sMimeType) && oPtPref.getBinaryDocumentPolicyCriteria() != null
+                        && oPtPref.getBinaryDocumentPolicyCriteria().getBinaryDocumentPolicyCriterion() != null
+                        && !oPtPref.getBinaryDocumentPolicyCriteria().getBinaryDocumentPolicyCriterion().isEmpty()) {
+                    for (BinaryDocumentPolicyCriterionType eachBinaryDocumentPolicyCriteria : oPtPref
+                            .getBinaryDocumentPolicyCriteria().getBinaryDocumentPolicyCriterion()) {
+                        if (sDocUniqueId.equals(eachBinaryDocumentPolicyCriteria.getDocumentUniqueId())) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="8" tokens="139">
+<file line="92" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/QueryUtil.java"/>
+<file line="208" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/QueryUtil.java"/>
+<codefragment>
+<![CDATA[
+                    if ((oExtObj.getSlot() != null) && (oExtObj.getSlot().size() > 0)) {
+                        List<SlotType1> olSlot = oExtObj.getSlot();
+                        for (SlotType1 oSlot : olSlot) {
+                            if ((oSlot.getName() != null)
+                                    && (oSlot.getName().equals(CDAConstants.SLOT_NAME_SOURCE_PATIENT_ID))
+                                    && (oSlot.getValueList() != null) && (oSlot.getValueList().getValue() != null)
+                                    && (oSlot.getValueList().getValue().size() > 0)
+                                    && (oSlot.getValueList().getValue().get(0).length() > 0)) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="13" tokens="134">
+<file line="453" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/CdaPdfExtractor.java"/>
+<file line="657" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/CdaPdfExtractor.java"/>
+<codefragment>
+<![CDATA[
+                oOriginalAuthor.setAuthorTime(oHL7Author.getTime().getValue());
+                bHaveData = true;
+            }
+
+            if ((oHL7Author.getAssignedAuthor() != null) && (oHL7Author.getAssignedAuthor().getId() != null)
+                    && (oHL7Author.getAssignedAuthor().getId().size() > 0)
+                    && (oHL7Author.getAssignedAuthor().getId().get(0) != null)) // There should only be one - if more
+                                                                                // then we will use the first.
+            {
+                // Assigned Person Assigning Authority
+                // -------------------------------------
+                if ((oHL7Author.getAssignedAuthor().getId().get(0).getRoot() != null)
+                        && (oHL7Author.getAssignedAuthor().getId().get(0).getRoot().length() > 0)) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="27" tokens="108">
+<file line="650" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/CdaPdfCreator.java"/>
+<file line="790" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/CdaPdfCreator.java"/>
+<codefragment>
+<![CDATA[
+        II oTemplateId = createII(CDAConstants.TEMPLATE_ID_ROOT_AUTHOR_ORIGINAL, null);
+        if (oTemplateId != null) {
+            oHL7Author.getTemplateId().add(oTemplateId);
+            bHaveData = true;
+        }
+        if (oAuthor != null) {
+
+            // Time
+            // ------
+            TSExplicit oTime = createTS(oAuthor.getAuthorTime());
+            if (oTime != null) {
+                oHL7Author.setTime(oTime);
+                bHaveData = true;
+            }
+
+            // Assigned Author
+            // ----------------
+            POCDMT000040AssignedAuthor oAssignedAuthor = new POCDMT000040AssignedAuthor();
+            boolean bHaveAssignedAuthorData = false;
+
+            // Author ID
+            // ----------
+            II oAuthorId = createII(oAuthor.getAuthorIdAssigningAuthority(), oAuthor.getAuthorId());
+            if (oAuthorId != null) {
+                oAssignedAuthor.getId().add(oAuthorId);
+                bHaveAssignedAuthorData = true;
+            }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="18" tokens="103">
+<file line="65" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/proxy/AdapterPIPProxyNoOpImpl.java"/>
+<file line="65" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/proxy/AdapterPIPProxyOptInNoOpImpl.java"/>
+<codefragment>
+<![CDATA[
+        log.debug("Begin AdapterPIPProxyNoOpImpl.retrievePtConsentByPtId");
+        RetrievePtConsentByPtIdResponseType oResponse = new RetrievePtConsentByPtIdResponseType();
+        PatientPreferencesType oPref = new PatientPreferencesType();
+        oResponse.setPatientPreferences(oPref);
+
+        if ((request != null) && (request.getAssigningAuthority() != null)) {
+            oPref.setAssigningAuthority(request.getAssigningAuthority());
+        } else {
+            oPref.setAssigningAuthority("");
+        }
+
+        if ((request != null) && (request.getPatientId() != null)) {
+            oPref.setPatientId(request.getPatientId());
+        } else {
+            oPref.setPatientId("");
+        }
+
+        oPref.setOptIn(false);
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>

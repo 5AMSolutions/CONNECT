@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2012-10-11T20:13:08.977">
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pep/AdapterPEPImpl.java">
+<violation beginline="178" endline="180" begincolumn="19" endcolumn="17" rule="EmptyCatchBlock" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pep" class="AdapterPEPImpl" method="checkPolicy" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="719" endline="719" begincolumn="29" endcolumn="108" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pep" class="AdapterPEPImpl" method="createReidentOptStatusAttrs" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'createReidentOptStatusAttrs(List,List)'.
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/AdapterPIPImpl.java">
+<violation beginline="29" endline="29" begincolumn="1" endcolumn="64" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'gov.hhs.fha.nhinc.common.nhinccommon.AcknowledgementType'
+</violation>
+<violation beginline="56" endline="56" begincolumn="33" endcolumn="55" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="AdapterPIPImpl" variable="GATEWAY_PROPERTIES_FILE" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'GATEWAY_PROPERTIES_FILE'.
+</violation>
+<violation beginline="57" endline="57" begincolumn="33" endcolumn="53" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="AdapterPIPImpl" variable="ADAPTER_PROPFILE_NAME" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'ADAPTER_PROPFILE_NAME'.
+</violation>
+<violation beginline="58" endline="58" begincolumn="33" endcolumn="55" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="AdapterPIPImpl" variable="HOME_COMMUNITY_PROPERTY" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'HOME_COMMUNITY_PROPERTY'.
+</violation>
+<violation beginline="176" endline="176" begincolumn="27" endcolumn="57" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="AdapterPIPImpl" method="buildAssertionInfo" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'buildAssertionInfo(String)'.
+</violation>
+<violation beginline="298" endline="301" begincolumn="20" endcolumn="13" rule="EmptyIfStmt" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="AdapterPIPImpl" method="buildAssertionInfo" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="307" endline="310" begincolumn="20" endcolumn="13" rule="EmptyIfStmt" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="AdapterPIPImpl" method="buildAssertionInfo" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/CdaPdfCreator.java">
+<violation beginline="46" endline="46" begincolumn="1" endcolumn="47" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'javax.xml.datatype.XMLGregorianCalendar'
+</violation>
+<violation beginline="103" endline="103" begincolumn="43" endcolumn="63" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="CdaPdfCreator" variable="oHL7DateOnlyFormatter" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'oHL7DateOnlyFormatter'.
+</violation>
+<violation beginline="105" endline="105" begincolumn="43" endcolumn="63" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="CdaPdfCreator" variable="oHL7DateTimeFormatter" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'oHL7DateTimeFormatter'.
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/CdaPdfExtractor.java">
+<violation beginline="81" endline="81" begincolumn="43" endcolumn="63" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="CdaPdfExtractor" variable="oHL7DateOnlyFormatter" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'oHL7DateOnlyFormatter'.
+</violation>
+<violation beginline="83" endline="83" begincolumn="43" endcolumn="63" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="CdaPdfExtractor" variable="oHL7DateTimeFormatter" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'oHL7DateTimeFormatter'.
+</violation>
+<violation beginline="868" endline="907" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="CdaPdfExtractor" method="createCustodian" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/PatientConsentDocumentBuilderHelper.java">
+<violation beginline="308" endline="313" begincolumn="13" endcolumn="5" rule="UnusedFormalParameter" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedFormalParameter" priority="3">
+Avoid unused method parameters such as 'oPtPref'.
+</violation>
+<violation beginline="352" endline="374" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setLegalAuthenticator" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="381" endline="383" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setDocumentUri" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="391" endline="408" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setServiceStartTime" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="417" endline="434" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setServiceStopTime" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="442" endline="458" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setIntendedRecipient" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="443" endline="457" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setIntendedRecipient" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="449" endline="454" begincolumn="29" endcolumn="29" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setIntendedRecipient" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="619" endline="632" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setTypeCode" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="700" endline="714" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setHealthcareFacilityTypeCode" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="739" endline="754" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setPracticeSettingCode" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="812" endline="818" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentDocumentBuilderHelper" method="setAuthor" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/PatientConsentManager.java">
+<violation beginline="48" endline="48" begincolumn="1" endcolumn="27" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.io.IOException'
+</violation>
+<violation beginline="131" endline="136" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentManager" method="storePatientConsent" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="644" endline="651" begincolumn="21" endcolumn="21" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentManager" method="extractFineGrainedPrefDoc" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="645" endline="650" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentManager" method="extractFineGrainedPrefDoc" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="671" endline="677" begincolumn="21" endcolumn="21" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentManager" method="extractBinPrefDoc" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="672" endline="676" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="PatientConsentManager" method="extractBinPrefDoc" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/XACMLCreator.java">
+<violation beginline="301" endline="301" begincolumn="20" endcolumn="70" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="XACMLCreator" method="createNhinPatientId" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateMethod" priority="3">
+Avoid unused private methods such as 'createNhinPatientId(PatientPreferencesType)'.
+</violation>
+<violation beginline="381" endline="381" begincolumn="16" endcolumn="28" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="XACMLCreator" method="createFineGrainedRule" variable="sPermitOrDeny" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'sPermitOrDeny'.
+</violation>
+<violation beginline="581" endline="581" begincolumn="16" endcolumn="28" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="XACMLCreator" method="createOptInOutRule" variable="sPermitOrDeny" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'sPermitOrDeny'.
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/PolicyEngineCore/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pip/XACMLExtractor.java">
+<violation beginline="38" endline="38" begincolumn="1" endcolumn="44" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'javax.xml.datatype.DatatypeConstants'
+</violation>
+<violation beginline="39" endline="39" begincolumn="1" endcolumn="42" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'javax.xml.datatype.DatatypeFactory'
+</violation>
+<violation beginline="40" endline="40" begincolumn="1" endcolumn="47" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'javax.xml.datatype.XMLGregorianCalendar'
+</violation>
+<violation beginline="159" endline="161" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="XACMLExtractor" method="extractSimpleOptInSetting" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="582" endline="601" begincolumn="29" endcolumn="29" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.policyengine.adapter.pip" class="XACMLExtractor" method="extractAndSetPatientIdInfo" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+</pmd>
