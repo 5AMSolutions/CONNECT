@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>CONNECT Adapter Authentication Core - Checkstyle report</title>
+    <link>www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore</link>
+    <description>CONNECT Adapter Authentication Core - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2012</copyright>
+    <item>
+      <title>File: 8,
+             Errors: 366,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html</link>
+      <description>
+        <p>Click <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.proxy.AdapterAuthenticationJavaProxy.java">gov/hhs/fha/nhinc/adapterauthentication/proxy/AdapterAuthenticationJavaProxy.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  41
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.proxy.AdapterAuthenticationWebServiceProxy.java">gov/hhs/fha/nhinc/adapterauthentication/proxy/AdapterAuthenticationWebServiceProxy.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  60
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.proxy.AdapterAuthenticationProxyObjectFactory.java">gov/hhs/fha/nhinc/adapterauthentication/proxy/AdapterAuthenticationProxyObjectFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  52
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.proxy.AdapterAuthenticationProxy.java">gov/hhs/fha/nhinc/adapterauthentication/proxy/AdapterAuthenticationProxy.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  34
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.AdapterAuthenticationImpl.java">gov/hhs/fha/nhinc/adapterauthentication/AdapterAuthenticationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  54
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.AdapterAuthenticationException.java">gov/hhs/fha/nhinc/adapterauthentication/AdapterAuthenticationException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  37
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.proxy.service.AdapterAuthenticationServicePortDescriptor.java">gov/hhs/fha/nhinc/adapterauthentication/proxy/service/AdapterAuthenticationServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  52
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/AdapterAuthenticationCore/checkstyle.html#gov.hhs.fha.nhinc.adapterauthentication.proxy.AdapterAuthenticationProxyNoOpImpl.java">gov/hhs/fha/nhinc/adapterauthentication/proxy/AdapterAuthenticationProxyNoOpImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  36
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
