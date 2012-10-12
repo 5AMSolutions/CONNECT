@@ -1,0 +1,2742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="136" tokens="685">
+<file line="435" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="619" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+                            }
+
+                            String pid3 = extractPatientInfo(documentSlots, XDS_SOURCE_PATIENT_INFO_PID3);
+                            log.debug("pid3: " + pid3);
+                            doc.setPid3(pid3);
+
+                            String pid5 = extractPatientInfo(documentSlots, XDS_SOURCE_PATIENT_INFO_PID5);
+                            log.debug("pid5: " + pid5);
+                            doc.setPid5(pid5);
+
+                            String pid7 = extractPatientInfo(documentSlots, XDS_SOURCE_PATIENT_INFO_PID7);
+                            log.debug("pid7: " + pid7);
+                            doc.setPid7(pid7);
+
+                            String pid8 = extractPatientInfo(documentSlots, XDS_SOURCE_PATIENT_INFO_PID8);
+                            log.debug("pid8: " + pid8);
+                            doc.setPid8(pid8);
+
+                            String pid11 = extractPatientInfo(documentSlots, XDS_SOURCE_PATIENT_INFO_PID11);
+                            log.debug("pid11: " + pid11);
+                            doc.setPid11(pid11);
+
+                            // extract classification metadata items
+                            List<oasis.names.tc.ebxml_regrep.xsd.rim._3.ClassificationType> classifications = extrinsicObject
+                                    .getClassification();
+
+                            // extract the document's author info
+                            String authorPerson = extractClassificationMetadata(classifications,
+                                    XDS_AUTHOR_CLASSIFICATION, XDS_AUTHOR_PERSON_SLOT, -1);
+                            log.debug("authorPerson: " + authorPerson);
+                            doc.setAuthorPerson(authorPerson);
+
+                            String authorInstitution = extractClassificationMetadata(classifications,
+                                    XDS_AUTHOR_CLASSIFICATION, XDS_AUTHOR_INSTITUTION_SLOT, -1);
+                            log.debug("authorInstitution: " + authorInstitution);
+                            doc.setAuthorInstitution(authorInstitution);
+
+                            String authorRole = extractClassificationMetadata(classifications,
+                                    XDS_AUTHOR_CLASSIFICATION, XDS_AUTHOR_ROLE_SLOT, -1);
+                            log.debug("authorRole: " + authorRole);
+                            doc.setAuthorRole(authorRole);
+
+                            String authorSpeciality = extractClassificationMetadata(classifications,
+                                    XDS_AUTHOR_CLASSIFICATION, XDS_AUTHOR_SPECIALITY_SLOT, -1);
+                            log.debug("authorSpeciality: " + authorSpeciality);
+                            doc.setAuthorSpecialty(authorSpeciality);
+
+                            // extract classCode
+                            String classCode = extractClassificationMetadata(classifications,
+                                    XDS_CLASSCODE_CLASSIFICATION, XDS_NODE_REPRESENTATION);
+                            log.debug("classCode: " + classCode);
+                            doc.setClassCode(classCode);
+
+                            String classCodeScheme = extractClassificationMetadata(classifications,
+                                    XDS_CLASSCODE_CLASSIFICATION, XDS_CODING_SCHEME_SLOT, 0);
+                            log.debug("classCodeScheme: " + classCodeScheme);
+                            doc.setClassCodeScheme(classCodeScheme);
+
+                            String classCodeDisplayName = extractClassificationMetadata(classifications,
+                                    XDS_CLASSCODE_CLASSIFICATION, XDS_NAME);
+                            log.debug("classCodeDisplayName: " + classCodeDisplayName);
+                            doc.setClassCodeDisplayName(classCodeDisplayName);
+
+                            // extract confidentialityCode
+                            String confidentialityCode = extractClassificationMetadata(classifications,
+                                    XDS_CONFIDENTIALITY_CODE_CLASSIFICATION, XDS_NODE_REPRESENTATION);
+                            log.debug("confidentialityCode: " + confidentialityCode);
+                            doc.setConfidentialityCode(confidentialityCode);
+
+                            String confidentialityCodeScheme = extractClassificationMetadata(classifications,
+                                    XDS_CONFIDENTIALITY_CODE_CLASSIFICATION, XDS_CODING_SCHEME_SLOT, 0);
+                            log.debug("confidentialityCodeScheme: " + confidentialityCodeScheme);
+                            doc.setConfidentialityCodeScheme(confidentialityCodeScheme);
+
+                            String confidentialityCodeDisplayName = extractClassificationMetadata(classifications,
+                                    XDS_CONFIDENTIALITY_CODE_CLASSIFICATION, XDS_NAME);
+                            log.debug("confidentialityCodeDisplayName: " + confidentialityCodeDisplayName);
+                            doc.setConfidentialityCodeDisplayName(confidentialityCodeDisplayName);
+
+                            // extract formatCode
+                            String formatCode = extractClassificationMetadata(classifications,
+                                    XDS_FORMAT_CODE_CLASSIFICATION, XDS_NODE_REPRESENTATION);
+                            log.debug("formatCode: " + formatCode);
+                            doc.setFormatCode(formatCode);
+
+                            String formatCodeScheme = extractClassificationMetadata(classifications,
+                                    XDS_FORMAT_CODE_CLASSIFICATION, XDS_CODING_SCHEME_SLOT, 0);
+                            log.debug("formatCodeScheme: " + formatCodeScheme);
+                            doc.setFormatCodeScheme(formatCodeScheme);
+
+                            String formatCodeDisplayName = extractClassificationMetadata(classifications,
+                                    XDS_FORMAT_CODE_CLASSIFICATION, XDS_NAME);
+                            log.debug("formatCodeDisplayName: " + formatCodeDisplayName);
+                            doc.setFormatCodeDisplayName(formatCodeDisplayName);
+
+                            // extract healthcareFacilityTypeCode
+                            doc.setFacilityCode(extractClassificationMetadata(classifications,
+                                    XDS_HEALTHCARE_FACILITY_TYPE_CODE_CLASSIFICATION, XDS_NODE_REPRESENTATION));
+                            doc.setFacilityCodeScheme(extractClassificationMetadata(classifications,
+                                    XDS_HEALTHCARE_FACILITY_TYPE_CODE_CLASSIFICATION, XDS_CODING_SCHEME_SLOT, 0));
+                            doc.setFacilityCodeDisplayName(extractClassificationMetadata(classifications,
+                                    XDS_HEALTHCARE_FACILITY_TYPE_CODE_CLASSIFICATION, XDS_NAME));
+
+                            // extract practiceSettingCode
+                            String practiceSetting = extractClassificationMetadata(classifications,
+                                    XDS_PRACTICE_SETTING_CODE_CLASSIFICATION, XDS_NODE_REPRESENTATION);
+                            log.debug("practiceSetting: " + practiceSetting);
+                            doc.setPracticeSetting(practiceSetting);
+
+                            String practiceSettingScheme = extractClassificationMetadata(classifications,
+                                    XDS_PRACTICE_SETTING_CODE_CLASSIFICATION, XDS_CODING_SCHEME_SLOT, 0);
+                            log.debug("practiceSettingScheme: " + practiceSettingScheme);
+                            doc.setPracticeSettingScheme(practiceSettingScheme);
+
+                            String practiceSettingDisplayName = extractClassificationMetadata(classifications,
+                                    XDS_PRACTICE_SETTING_CODE_CLASSIFICATION, XDS_NAME);
+                            log.debug("practiceSettingDisplayName: " + practiceSettingDisplayName);
+                            doc.setPracticeSettingDisplayName(practiceSettingDisplayName);
+
+                            // extract typeCode
+                            String typeCode = extractClassificationMetadata(classifications,
+                                    XDS_TYPE_CODE_CLASSIFICATION, XDS_NODE_REPRESENTATION);
+                            log.debug("typeCode: " + typeCode);
+                            doc.setTypeCode(typeCode);
+
+                            String typeCodeScheme = extractClassificationMetadata(classifications,
+                                    XDS_TYPE_CODE_CLASSIFICATION, XDS_CODING_SCHEME_SLOT, 0);
+                            log.debug("typeCodeScheme: " + typeCodeScheme);
+                            doc.setTypeCodeScheme(typeCodeScheme);
+
+                            String typeCodeDisplayName = extractClassificationMetadata(classifications,
+                                    XDS_TYPE_CODE_CLASSIFICATION, XDS_NAME);
+                            log.debug("typeCodeDisplayName: " + typeCodeDisplayName);
+                            doc.setTypeCodeDisplayName(typeCodeDisplayName);
+                            // extract eventCodes
+                            extractEventCodes(classifications, doc);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="64" tokens="676">
+<file line="54" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<file line="180" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<codefragment>
+<![CDATA[
+    public static MCCIIN000002UV01 createAckFrom201305(PRPAIN201305UV02 request, String ackMsgText) {
+        MCCIIN000002UV01 ack = new MCCIIN000002UV01();
+        II msgId = new II();
+        String senderOID = null;
+        String receiverOID = null;
+
+        if (request != null) {
+            // Extract the message id
+            if (request.getId() != null) {
+                msgId = request.getId();
+            }
+
+            // Set the sender OID to the receiver OID from the original message
+            if (NullChecker.isNotNullish(request.getReceiver())
+                    && request.getReceiver().get(0) != null
+                    && request.getReceiver().get(0).getDevice() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue() != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue().getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                senderOID = request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                        .getRepresentedOrganization().getValue().getId().get(0).getRoot();
+            }
+
+            // Set the receiver OID to the sender OID from the original message
+            if (request.getSender() != null
+                    && request.getSender().getDevice() != null
+                    && request.getSender().getDevice().getAsAgent() != null
+                    && request.getSender().getDevice().getAsAgent().getValue() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue() != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue()
+                            .getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                receiverOID = request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                        .getValue().getId().get(0).getRoot();
+            }
+
+            // Create the ack message
+            ack = HL7AckTransforms.createAckMessage(null, msgId, ACK_TYPE_CODE_ACCEPT, ackMsgText, senderOID,
+                    receiverOID);
+        }
+
+        return ack;
+    }
+
+    /**
+     * Create acknowledgement error message from patient discovery request.
+     * 
+     * @param request
+     * @param ackMsgText
+     * @return ackMsg
+     */
+    public static MCCIIN000002UV01 createAckErrorFrom201305(PRPAIN201305UV02 request, String ackMsgText) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="64" tokens="676">
+<file line="117" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<file line="243" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<codefragment>
+<![CDATA[
+    public static MCCIIN000002UV01 createAckErrorFrom201305(PRPAIN201305UV02 request, String ackMsgText) {
+        MCCIIN000002UV01 ack = new MCCIIN000002UV01();
+        II msgId = new II();
+        String senderOID = null;
+        String receiverOID = null;
+
+        if (request != null) {
+            // Extract the message id
+            if (request.getId() != null) {
+                msgId = request.getId();
+            }
+
+            // Set the sender OID to the receiver OID from the original message
+            if (NullChecker.isNotNullish(request.getReceiver())
+                    && request.getReceiver().get(0) != null
+                    && request.getReceiver().get(0).getDevice() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue() != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue().getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                senderOID = request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                        .getRepresentedOrganization().getValue().getId().get(0).getRoot();
+            }
+
+            // Set the receiver OID to the sender OID from the original message
+            if (request.getSender() != null
+                    && request.getSender().getDevice() != null
+                    && request.getSender().getDevice().getAsAgent() != null
+                    && request.getSender().getDevice().getAsAgent().getValue() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue() != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue()
+                            .getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                receiverOID = request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                        .getValue().getId().get(0).getRoot();
+            }
+
+            // Create the ack message
+            ack = HL7AckTransforms.createAckMessage(null, msgId, ACK_TYPE_CODE_ERROR, ackMsgText, senderOID,
+                    receiverOID);
+        }
+
+        return ack;
+    }
+
+    /**
+     * Create acknowledgement accept message from patient discovery response.
+     * 
+     * @param request
+     * @param ackMsgText
+     * @return ackMsg
+     */
+    public static MCCIIN000002UV01 createAckFrom201306(PRPAIN201306UV02 request, String ackMsgText) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="50" tokens="663">
+<file line="54" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<file line="117" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<codefragment>
+<![CDATA[
+    public static MCCIIN000002UV01 createAckFrom201305(PRPAIN201305UV02 request, String ackMsgText) {
+        MCCIIN000002UV01 ack = new MCCIIN000002UV01();
+        II msgId = new II();
+        String senderOID = null;
+        String receiverOID = null;
+
+        if (request != null) {
+            // Extract the message id
+            if (request.getId() != null) {
+                msgId = request.getId();
+            }
+
+            // Set the sender OID to the receiver OID from the original message
+            if (NullChecker.isNotNullish(request.getReceiver())
+                    && request.getReceiver().get(0) != null
+                    && request.getReceiver().get(0).getDevice() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue() != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue().getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                senderOID = request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                        .getRepresentedOrganization().getValue().getId().get(0).getRoot();
+            }
+
+            // Set the receiver OID to the sender OID from the original message
+            if (request.getSender() != null
+                    && request.getSender().getDevice() != null
+                    && request.getSender().getDevice().getAsAgent() != null
+                    && request.getSender().getDevice().getAsAgent().getValue() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue() != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue()
+                            .getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                receiverOID = request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                        .getValue().getId().get(0).getRoot();
+            }
+
+            // Create the ack message
+            ack = HL7AckTransforms.createAckMessage(null, msgId, ACK_TYPE_CODE_ACCEPT, ackMsgText, senderOID,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="50" tokens="663">
+<file line="180" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<file line="243" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<codefragment>
+<![CDATA[
+    public static MCCIIN000002UV01 createAckFrom201306(PRPAIN201306UV02 request, String ackMsgText) {
+        MCCIIN000002UV01 ack = new MCCIIN000002UV01();
+        II msgId = new II();
+        String senderOID = null;
+        String receiverOID = null;
+
+        if (request != null) {
+            // Extract the message id
+            if (request.getId() != null) {
+                msgId = request.getId();
+            }
+
+            // Set the sender OID to the receiver OID from the original message
+            if (NullChecker.isNotNullish(request.getReceiver())
+                    && request.getReceiver().get(0) != null
+                    && request.getReceiver().get(0).getDevice() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue() != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue().getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                senderOID = request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                        .getRepresentedOrganization().getValue().getId().get(0).getRoot();
+            }
+
+            // Set the receiver OID to the sender OID from the original message
+            if (request.getSender() != null
+                    && request.getSender().getDevice() != null
+                    && request.getSender().getDevice().getAsAgent() != null
+                    && request.getSender().getDevice().getAsAgent().getValue() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue() != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue()
+                            .getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                receiverOID = request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                        .getValue().getId().get(0).getRoot();
+            }
+
+            // Create the ack message
+            ack = HL7AckTransforms.createAckMessage(null, msgId, ACK_TYPE_CODE_ACCEPT, ackMsgText, senderOID,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="50" tokens="661">
+<file line="117" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<file line="180" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<codefragment>
+<![CDATA[
+    public static MCCIIN000002UV01 createAckErrorFrom201305(PRPAIN201305UV02 request, String ackMsgText) {
+        MCCIIN000002UV01 ack = new MCCIIN000002UV01();
+        II msgId = new II();
+        String senderOID = null;
+        String receiverOID = null;
+
+        if (request != null) {
+            // Extract the message id
+            if (request.getId() != null) {
+                msgId = request.getId();
+            }
+
+            // Set the sender OID to the receiver OID from the original message
+            if (NullChecker.isNotNullish(request.getReceiver())
+                    && request.getReceiver().get(0) != null
+                    && request.getReceiver().get(0).getDevice() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue() != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue().getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                senderOID = request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                        .getRepresentedOrganization().getValue().getId().get(0).getRoot();
+            }
+
+            // Set the receiver OID to the sender OID from the original message
+            if (request.getSender() != null
+                    && request.getSender().getDevice() != null
+                    && request.getSender().getDevice().getAsAgent() != null
+                    && request.getSender().getDevice().getAsAgent().getValue() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue() != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue()
+                            .getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                receiverOID = request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                        .getValue().getId().get(0).getRoot();
+            }
+
+            // Create the ack message
+            ack = HL7AckTransforms.createAckMessage(null, msgId, ACK_TYPE_CODE_ERROR, ackMsgText, senderOID,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="50" tokens="661">
+<file line="54" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<file line="243" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7AckTransforms.java"/>
+<codefragment>
+<![CDATA[
+    public static MCCIIN000002UV01 createAckFrom201305(PRPAIN201305UV02 request, String ackMsgText) {
+        MCCIIN000002UV01 ack = new MCCIIN000002UV01();
+        II msgId = new II();
+        String senderOID = null;
+        String receiverOID = null;
+
+        if (request != null) {
+            // Extract the message id
+            if (request.getId() != null) {
+                msgId = request.getId();
+            }
+
+            // Set the sender OID to the receiver OID from the original message
+            if (NullChecker.isNotNullish(request.getReceiver())
+                    && request.getReceiver().get(0) != null
+                    && request.getReceiver().get(0).getDevice() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue() != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getReceiver().get(0).getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                            .getValue().getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                senderOID = request.getReceiver().get(0).getDevice().getAsAgent().getValue()
+                        .getRepresentedOrganization().getValue().getId().get(0).getRoot();
+            }
+
+            // Set the receiver OID to the sender OID from the original message
+            if (request.getSender() != null
+                    && request.getSender().getDevice() != null
+                    && request.getSender().getDevice().getAsAgent() != null
+                    && request.getSender().getDevice().getAsAgent().getValue() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization() != null
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue() != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId())
+                    && request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue()
+                            .getId().get(0) != null
+                    && NullChecker.isNotNullish(request.getSender().getDevice().getAsAgent().getValue()
+                            .getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+                receiverOID = request.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization()
+                        .getValue().getId().get(0).getRoot();
+            }
+
+            // Create the ack message
+            ack = HL7AckTransforms.createAckMessage(null, msgId, ACK_TYPE_CODE_ACCEPT, ackMsgText, senderOID,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="43" tokens="441">
+<file line="366" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/perfrepo/dao/PerfrepositoryDao.java"/>
+<file line="447" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/perfrepo/dao/PerfrepositoryDao.java"/>
+<codefragment>
+<![CDATA[
+                            "SELECT servicetype, messagetype, direction, AVG(duration) AS avgduration, MIN(duration) AS minduration, MAX(duration) AS maxduration, COUNT(direction) AS countval FROM perfrepo.perfrepository WHERE UPPER(direction) <> 'ERROR' AND starttime BETWEEN ? AND ? GROUP BY servicetype, messagetype, direction")
+                    .addScalar("servicetype", Hibernate.STRING).addScalar("messagetype", Hibernate.STRING)
+                    .addScalar("direction", Hibernate.STRING).addScalar("avgduration", Hibernate.DOUBLE)
+                    .addScalar("minduration", Hibernate.LONG).addScalar("maxduration", Hibernate.LONG)
+                    .addScalar("countval", Hibernate.LONG);
+
+            List<Object[]> result = sqlQuery.setTimestamp(0, beginTime).setTimestamp(1, endTime).list();
+
+            if (result != null && result.size() > 0) {
+                String[] servicetypeArray = new String[result.size()];
+                String[] messagetypeArray = new String[result.size()];
+                String[] directionArray = new String[result.size()];
+                BigDecimal[] avgdurationArray = new BigDecimal[result.size()];
+                Long[] mindurationArray = new Long[result.size()];
+                Long[] maxdurationArray = new Long[result.size()];
+                Long[] countvalArray = new Long[result.size()];
+                int counter = 0;
+                for (Object[] row : result) {
+                    servicetypeArray[counter] = row[0].toString();
+                    messagetypeArray[counter] = row[1].toString();
+                    directionArray[counter] = row[2].toString();
+                    avgdurationArray[counter] = new BigDecimal(row[3].toString());
+                    mindurationArray[counter] = new Long(row[4].toString());
+                    maxdurationArray[counter] = new Long(row[5].toString());
+                    countvalArray[counter] = new Long(row[6].toString());
+                    counter++;
+                }
+
+                queryList = new ArrayList<DetailDataType>();
+                for (int i = 0; i < directionArray.length; i++) {
+                    DetailDataType detailData = new DetailDataType();
+                    detailData.setServiceType(servicetypeArray[i]);
+                    detailData.setMessageType(messagetypeArray[i]);
+                    detailData.setDirection(directionArray[i]);
+                    detailData.setAvgDuration(avgdurationArray[i]);
+                    detailData.setMinDuration(mindurationArray[i]);
+                    detailData.setMaxDuration(maxdurationArray[i]);
+                    detailData.setCount(countvalArray[i]);
+                    queryList.add(detailData);
+                }
+            }
+        } catch (Exception e) {
+            log.error("Exception in getPerfrepositoryDetailRange() occured due to :" + e.getMessage(), e);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="54" tokens="331">
+<file line="60" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<file line="151" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<codefragment>
+<![CDATA[
+        log.info("Entering transformNhinNotifyRequestToAuditMessage() method.");
+        log.info("******************************************************************");
+
+        // Extract UserInfo from Message.Assertion
+        UserType userInfo = new UserType();
+        if (message != null && message.getMessage() != null && message.getMessage().getAssertion() != null
+                && message.getMessage().getAssertion().getUserInfo() != null) {
+            userInfo = message.getMessage().getAssertion().getUserInfo();
+        }
+
+        // Create EventIdentification
+        CodedValueType eventID = new CodedValueType();
+        eventID = AuditDataTransformHelper.createEventId(AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_NOT,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_NOTIFY,
+                AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_NOT,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_NOTIFY);
+        auditMsg.setEventIdentification(AuditDataTransformHelper.createEventIdentification(
+                AuditDataTransformConstants.EVENT_ACTION_CODE_CREATE,
+                AuditDataTransformConstants.EVENT_OUTCOME_INDICATOR_SUCCESS, eventID));
+
+        // Create Active Participant Section
+        if (userInfo != null) {
+            AuditMessageType.ActiveParticipant participant = AuditDataTransformHelper.createActiveParticipantFromUser(
+                    userInfo, true);
+            auditMsg.getActiveParticipant().add(participant);
+        }
+
+        /* Assign AuditSourceIdentification */
+
+        String patientId = "";
+        if (NullChecker.isNotNullish(message.getMessage().getAssertion().getUniquePatientId())
+                && NullChecker.isNotNullish(message.getMessage().getAssertion().getUniquePatientId().get(0))) {
+            patientId = message.getMessage().getAssertion().getUniquePatientId().get(0);
+        }
+
+        String communityId = "";
+        String communityName = "";
+        if (userInfo != null && userInfo.getOrg() != null) {
+
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                .createParticipantObjectIdentification(patientId);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="45" tokens="312">
+<file line="36" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/callback/SamlConstants.java"/>
+<file line="150" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/nhinclib/NhincConstants.java"/>
+<codefragment>
+<![CDATA[
+    public static final String ACTION_PROP = "action";
+    public static final String RESOURCE_PROP = "resource";
+    public static final String PURPOSE_CODE_PROP = "purposeOfUseRoleCode";
+    public static final String PURPOSE_SYST_PROP = "purposeOfUseCodeSystem";
+    public static final String PURPOSE_SYST_NAME_PROP = "purposeOfUseCodeSystemName";
+    public static final String PURPOSE_DISPLAY_PROP = "purposeOfUseDisplayName";
+    public static final String USER_FIRST_PROP = "userFirstName";
+    public static final String USER_MIDDLE_PROP = "userMiddleName";
+    public static final String USER_LAST_PROP = "userLastName";
+    public static final String USER_NAME_PROP = "userName";
+    public static final String USER_ORG_PROP = "userOrganization";
+    public static final String USER_ORG_ID_PROP = "userOrganizationID";
+    public static final String HOME_COM_PROP = "homeCommunity";
+    public static final String PATIENT_ID_PROP = "patientID";
+    public static final String USER_CODE_PROP = "userRoleCode";
+    public static final String USER_SYST_PROP = "userRoleCodeSystem";
+    public static final String USER_SYST_NAME_PROP = "userRoleCodeSystemName";
+    public static final String USER_DISPLAY_PROP = "userRoleCodeDisplayName";
+    public static final String AUTHN_INSTANT_PROP = "authnInstant";
+    public static final String AUTHN_SESSION_INDEX_PROP = "authnSessionIndex";
+    public static final String AUTHN_CONTEXT_CLASS_PROP = "authnContextClass";
+    public static final String SUBJECT_LOCALITY_ADDR_PROP = "subjectLocalityAddress";
+    public static final String SUBJECT_LOCALITY_DNS_PROP = "subjectLocalityDNS";
+    public static final String AUTHZ_DECISION_PROP = "authzDecision";
+    public static final String AUTHZ_STATEMENT_EXISTS_PROP = "authzStatementExists";
+    public static final String ASSERTION_ISSUER_PROP = "assertionIssuer";
+    public static final String ASSERTION_ISSUER_FORMAT_PROP = "assertionIssuerFormat";
+    public static final String EVIDENCE_ID_PROP = "evidenceAssertionId";
+    public static final String EVIDENCE_INSTANT_PROP = "evidenceAssertionInstant";
+    public static final String EVIDENCE_VERSION_PROP = "evidenceAssertionVersion";
+    public static final String EVIDENCE_ISSUER_PROP = "evidenceAssertionIssuer";
+    public static final String EVIDENCE_ISSUER_FORMAT_PROP = "evidenceAssertionIssuerFormat";
+    public static final String EVIDENCE_SUBJECT_PROP = "evidenceSubject";
+    public static final String EVIDENCE_CONDITION_NOT_BEFORE_PROP = "evidenceConditionNotBefore";
+    public static final String EVIDENCE_CONDITION_NOT_AFTER_PROP = "evidenceConditionNotAfter";
+    public static final String EVIDENCE_ACCESS_CONSENT_PROP = "evidenceAccessConsent";
+    public static final String EVIDENCE_INST_ACCESS_CONSENT_PROP = "evidenceInstanceAccessConsent";
+    public static final String AUDIT_QUERY_ACTION = "queryAuditLog";
+    public static final String NOTIFY_ACTION = "notify";
+    public static final String SUBSCRIBE_ACTION = "subscribe";
+    public static final String UNSUBSCRIBE_ACTION = "unsubscribe";
+    public static final String DOC_QUERY_ACTION = "queryDocuments";
+    public static final String DOC_RETRIEVE_ACTION = "retrieveDocuments";
+    public static final String PATIENT_DISCOVERY_ACTION = "patientDiscovery";
+    public static final String ADAPTER_XDR_ACTION = "adapterXDRSecured";
+]]>
+</codefragment>
+</duplication>
+<duplication lines="50" tokens="301">
+<file line="218" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/callback/cxf/EndorsingSupportingTokensInterceptor.java"/>
+<file line="268" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/callback/cxf/EndorsingSupportingTokensInterceptor.java"/>
+<codefragment>
+<![CDATA[
+        Collection<AssertionInfo> ais = aim.get(SP12Constants.ASYMMETRIC_BINDING);
+        if (ais == null || ais.isEmpty()) {
+            return action;
+        }
+
+        action = addToAction(action, "Signature", true);
+        action = addToAction(action, "Encrypt", true);
+        Object s = message.getContextualProperty(SecurityConstants.SIGNATURE_CRYPTO);
+        if (s == null) {
+            s = message.getContextualProperty(SecurityConstants.SIGNATURE_PROPERTIES);
+        }
+        Object e = message.getContextualProperty(SecurityConstants.ENCRYPT_CRYPTO);
+        if (e == null) {
+            e = message.getContextualProperty(SecurityConstants.ENCRYPT_PROPERTIES);
+        }
+
+        if (s != null) {
+            URL propsURL = getPropertiesFileURL(s, message);
+            String propsKey = s.toString();
+            if (propsURL != null) {
+                propsKey = propsURL.getPath();
+            }
+            message.put(WSHandlerConstants.DEC_PROP_REF_ID, "RefId-" + propsKey);
+            if (s instanceof Crypto) {
+                message.put("RefId-" + propsKey, (Crypto) s);
+            } else {
+                message.put("RefId-" + propsKey, getProps(s, propsKey, propsURL, message));
+            }
+            if (e == null) {
+                e = s;
+            }
+        }
+        if (e != null) {
+            URL propsURL = getPropertiesFileURL(e, message);
+            String propsKey = e.toString();
+            if (propsURL != null) {
+                propsKey = propsURL.getPath();
+            }
+            message.put(WSHandlerConstants.SIG_PROP_REF_ID, "RefId-" + propsKey);
+            if (e instanceof Crypto) {
+                message.put("RefId-" + propsKey, (Crypto) e);
+            } else {
+                message.put("RefId-" + propsKey, getProps(e, propsKey, propsURL, message));
+            }
+        }
+
+        return action;
+    }
+
+    private String checkTransportBinding(AssertionInfoMap aim, String action, SoapMessage message) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="24" tokens="289">
+<file line="325" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<file line="348" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+    protected HomeCommunityType getHomeCommunity(PRPAIN201306UV02 event) {
+
+        HomeCommunityType senderHomeCommunity = new HomeCommunityType();
+
+        if (event != null &&
+                event.getSender() != null &&
+                event.getSender().getDevice() != null &&
+                event.getSender().getDevice().getAsAgent() != null &&
+                event.getSender().getDevice().getAsAgent().getValue() != null &&
+                event.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization() != null &&
+                event.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue() != null &&
+                NullChecker.isNotNullish(event.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue().getId()) &&
+                event.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue().getId().get(0) != null &&
+                NullChecker.isNotNullish(event.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue().getId().get(0).getRoot())) {
+
+            senderHomeCommunity.setHomeCommunityId(event.getSender().getDevice().getAsAgent().getValue().getRepresentedOrganization().getValue().getId().get(0).getRoot());
+
+        }
+
+        return senderHomeCommunity;
+
+    }
+
+    protected HomeCommunityType getHomeCommunity(PRPAIN201305UV02 event) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="48" tokens="287">
+<file line="377" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="566" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+                                    + intendedRecipientValue);
+                            if (intendedRecipientValue != null) {
+                                String intendedRecipientPerson = "";
+                                String intendedRecipientOrganization = "";
+                                if (intendedRecipientValue.indexOf("|") != -1) {
+                                    intendedRecipientValue.substring(intendedRecipientValue.indexOf("|") + 1);
+                                    intendedRecipientOrganization = intendedRecipientValue.substring(0,
+                                            intendedRecipientValue.indexOf("|"));
+                                } else {
+                                    intendedRecipientOrganization = intendedRecipientValue;
+                                }
+                                log.debug("Document intendedRecipientPerson for ExtrinsicObject " + i + ": "
+                                        + intendedRecipientPerson);
+                                log.debug("Document intendedRecipientOrganization for ExtrinsicObject " + i + ": "
+                                        + intendedRecipientOrganization);
+                                doc.setIntendedRecipientPerson(intendedRecipientPerson);
+                                doc.setIntendedRecipientOrganization(intendedRecipientOrganization);
+                            }
+
+                            // extract languageCode
+                            doc.setLanguageCode(extractMetadataFromSlots(documentSlots, XDS_LANGUAGE_CODE_SLOT, 0));
+                            log.debug("Document LanguageCode for ExtrinsicObject " + i + ": " + doc.getLanguageCode());
+
+                            // extract legalAuthenticator
+                            doc.setLegalAuthenticator(extractMetadataFromSlots(documentSlots,
+                                    XDS_LEGAL_AUTHENTICATOR_SLOT, 0));
+                            log.debug("Document LegalAuthenticator for ExtrinsicObject " + i + ": "
+                                    + doc.getLegalAuthenticator());
+
+                            // extract Date fields
+                            String creationTime = extractMetadataFromSlots(documentSlots, XDS_CREATION_TIME_SLOT, 0);
+                            log.debug("Document creationTime for ExtrinsicObject " + i + ": " + creationTime);
+                            // TODO add an error code for invalid date format
+                            doc.setCreationTime(utcDateUtil.parseUTCDateOptionalTimeZone(creationTime));
+
+                            String startTime = extractMetadataFromSlots(documentSlots, XDS_START_TIME_SLOT, 0);
+                            log.debug("Document startTime for ExtrinsicObject " + i + ": " + startTime);
+                            doc.setServiceStartTime(utcDateUtil.parseUTCDateOptionalTimeZone(startTime));
+
+                            String stopTime = extractMetadataFromSlots(documentSlots, XDS_STOP_TIME_SLOT, 0);
+                            log.debug("Document stopTime for ExtrinsicObject " + i + ": " + stopTime);
+                            doc.setServiceStopTime(utcDateUtil.parseUTCDateOptionalTimeZone(stopTime));
+
+                            // extract sourcePatientInfo metadata
+                            String sourcePatientId = extractMetadataFromSlots(documentSlots,
+                                    XDS_SOURCE_PATIENT_ID_SLOT, 0);
+                            log.debug("sourcePatientid: " + sourcePatientId);
+                            if (sourcePatientId != null) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="55" tokens="280">
+<file line="66" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<file line="159" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        log.info("Entering transformNhinUnsubscribeRequestToAuditMessage() method.");
+        log.info("******************************************************************");
+
+        // Extract UserInfo from Message.Assertion
+        UserType userInfo = new UserType();
+        if (message != null && message.getMessage() != null && message.getMessage().getAssertion() != null
+                && message.getMessage().getAssertion().getUserInfo() != null) {
+            userInfo = message.getMessage().getAssertion().getUserInfo();
+        }
+
+        // Create EventIdentification
+        CodedValueType eventID = new CodedValueType();
+        eventID = AuditDataTransformHelper.createEventId(AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_SUB,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_SUBSCRIBE,
+                AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_SUB,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_SUBSCRIBE);
+        auditMsg.setEventIdentification(AuditDataTransformHelper.createEventIdentification(
+                AuditDataTransformConstants.EVENT_ACTION_CODE_CREATE,
+                AuditDataTransformConstants.EVENT_OUTCOME_INDICATOR_SUCCESS, eventID));
+
+        // Create Active Participant Section
+        if (userInfo != null) {
+            AuditMessageType.ActiveParticipant participant = AuditDataTransformHelper.createActiveParticipantFromUser(
+                    userInfo, true);
+            auditMsg.getActiveParticipant().add(participant);
+        }
+
+        /* Assign AuditSourceIdentification */
+        String communityId = "";
+        String communityName = "";
+        String patientId = "";
+
+        // An unsubscribe message does not contain a patient identifier.
+
+        if (userInfo != null && userInfo.getOrg() != null) {
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                .createParticipantObjectIdentification(patientId);
+
+        // Fill in the message field with the contents of the event message
+        try {
+            JAXBContextHandler oHandler = new JAXBContextHandler();
+            JAXBContext jc = oHandler.getJAXBContext("org.oasis_open.docs.wsn.b_2");
+]]>
+</codefragment>
+</duplication>
+<duplication lines="42" tokens="272">
+<file line="502" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<file line="128" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/XDRPolicyTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+    }
+
+    private String getIdentifiersFromRequest(ProvideAndRegisterDocumentSetRequestType request) {
+        String result = "";
+
+        if (request == null) {
+            log.error(("Incoming ProvideAndRegisterDocumentSetRequestType was null"));
+            return null;
+        }
+
+        if (request.getSubmitObjectsRequest() == null)
+
+        {
+            log.error(("Incoming ProvideAndRegisterDocumentSetRequestType metadata was null"));
+            return null;
+        }
+
+        System.out.println(request.getSubmitObjectsRequest().getRegistryObjectList().getIdentifiable());
+        RegistryObjectListType object = request.getSubmitObjectsRequest().getRegistryObjectList();
+
+        for (int x = 0; x < object.getIdentifiable().size(); x++) {
+            System.out.println(object.getIdentifiable().get(x).getName());
+
+            if (object.getIdentifiable().get(x).getDeclaredType().equals(RegistryPackageType.class)) {
+                RegistryPackageType registryPackage = (RegistryPackageType) object.getIdentifiable().get(x).getValue();
+
+                System.out.println(registryPackage.getSlot().size());
+
+                for (int y = 0; y < registryPackage.getExternalIdentifier().size(); y++) {
+                    String test = registryPackage.getExternalIdentifier().get(y).getName().getLocalizedString().get(0)
+                            .getValue();
+                    if (test.equals("XDSSubmissionSet.patientId")) {
+                        result = registryPackage.getExternalIdentifier().get(y).getValue();
+                    }
+
+                }
+
+            }
+        }
+
+        return result;
+    }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="59" tokens="232">
+<file line="78" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/connectmgr/persistance/dao/InternalConnectionInfoDAOFileImpl.java"/>
+<file line="77" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/connectmgr/persistance/dao/UddiConnectionInfoDAOFileImpl.java"/>
+<codefragment>
+<![CDATA[
+                    setFileName(sValue + File.separator + INTERNAL_XML_FILE_NAME);
+                }
+            }
+        }
+
+        return isFile() ? file.getAbsolutePath() : null;
+    }
+
+    private boolean isFile() {
+        return file != null && file.exists();
+    }
+
+    @Override
+    public BusinessDetail loadBusinessDetail() throws Exception {
+        if (!isFile()) {
+            throw new ConnectionManagerException("Unable to access system variable: nhinc.properties.dir.");
+        }
+
+        BusinessDetail resp = null;
+        try {
+            resp = super.loadBusinessDetail(file);
+        } catch (JAXBException ex) {
+            getLogger().error("unable to load business entities from " + file.getName(), ex);
+            resp = new BusinessDetail();
+            throw new Exception("unable to load business entities from " + file.getName(), ex);
+        }
+        return resp;
+    }
+
+    @Override
+    public void saveBusinessDetail(BusinessDetail BusinessDetail) {
+        super.saveBusinessDetail(BusinessDetail, file);
+    }
+
+    public long getLastModified() {
+        if (file.exists()) {
+            return file.lastModified();
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    protected Log getLogger() {
+        if (log == null) {
+            setLogger(LogFactory.getLog(this.getClass()));
+        }
+        return log;
+    }
+
+    @Override
+    protected void setLogger(Log log) {
+        this.log = log;
+    }
+
+    public void setFileName(String fileName) {
+        file = new File(fileName);
+    }
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="41" tokens="212">
+<file line="159" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/AdminDistTransforms.java"/>
+<file line="245" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/AdminDistTransforms.java"/>
+<codefragment>
+<![CDATA[
+            communityName = target.getHomeCommunity().getName();
+
+            /* Create the AuditSourceIdentifierType object */
+            AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                    communityId, communityName);
+            auditMsg.getAuditSourceIdentification().add(auditSource);
+
+            ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                    .createParticipantObjectIdentification("N/A");
+            // Fill in the message field with the contents of the event message
+            try {
+                JAXBContextHandler oHandler = new JAXBContextHandler();
+                JAXBContext jc = oHandler.getJAXBContext(oasis.names.tc.emergency.edxl.de._1.ObjectFactory.class,
+                        oasis.names.tc.emergency.edxl.de._1.EDXLDistribution.class);
+                Marshaller marshaller = jc.createMarshaller();
+                ByteArrayOutputStream baOutStrm = new ByteArrayOutputStream();
+                baOutStrm.reset();
+                marshaller.marshal(body, baOutStrm);
+                log.debug("Done marshalling the message.");
+
+                participantObject.setParticipantObjectQuery(baOutStrm.toByteArray());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.error("EXCEPTION when marshalling Nhin Notify Request : " + e);
+                throw new RuntimeException();
+            }
+            // Put the contents of the actual message into the Audit Log Message
+            ByteArrayOutputStream baOutStrm = new ByteArrayOutputStream();
+
+            participantObject.setParticipantObjectQuery(baOutStrm.toByteArray());
+            auditMsg.getParticipantObjectIdentification().add(participantObject);
+
+            result.setAuditMessage(auditMsg);
+            result.setDirection(direction);
+            result.setInterface(_interface);
+
+            log.debug("Exiting transformEDXLDistributionRequestToAuditMsg() method.");
+
+            return result;
+        }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="40" tokens="204">
+<file line="286" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/AdminDistTransforms.java"/>
+<file line="448" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<codefragment>
+<![CDATA[
+    }
+
+    protected boolean areRequiredUserTypeFieldsNull(AssertionType oAssertion) {
+        boolean bReturnVal = false;
+
+        if ((oAssertion != null) && (oAssertion.getUserInfo() != null)) {
+            if (oAssertion.getUserInfo().getUserName() != null) {
+                log.debug("Incomming request.getAssertion.getUserInfo.getUserName: "
+                        + oAssertion.getUserInfo().getUserName());
+            } else {
+                log.error("Incomming request.getAssertion.getUserInfo.getUserName was null.");
+                bReturnVal = true;
+                return true;
+            }
+
+            if (oAssertion.getUserInfo().getOrg().getHomeCommunityId() != null) {
+                log.debug("Incomming request.getAssertion.getUserInfo.getOrg().getHomeCommunityId(): "
+                        + oAssertion.getUserInfo().getOrg().getHomeCommunityId());
+            } else {
+                log.error("Incomming request.getAssertion.getUserInfo.getOrg().getHomeCommunityId() was null.");
+                bReturnVal = true;
+                return true;
+            }
+
+            if (oAssertion.getUserInfo().getOrg().getName() != null) {
+                log.debug("Incomming request.getAssertion.getUserInfo.getOrg().getName() or Community Name: "
+                        + oAssertion.getUserInfo().getOrg().getName());
+            } else {
+                log.error("Incomming request.getAssertion.getUserInfo.getOrg().getName() or Community Name was null.");
+                bReturnVal = true;
+                return true;
+            }
+        } else {
+            log.error("The UserType object or request assertion object containing the assertion user info was null.");
+            bReturnVal = true;
+            return true;
+        } // else continue
+
+        return bReturnVal;
+    }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="26" tokens="203">
+<file line="197" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pdp/proxy/AdapterPDPProxyJavaImpl.java"/>
+<file line="240" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/policyengine/adapter/pdp/proxy/AdapterPDPProxyJavaImpl.java"/>
+<codefragment>
+<![CDATA[
+        log.debug("Begin AdapterPDPProxyJavaImpl.getPatientIdFromPdpRequest()");
+        List<Resource> resources = new ArrayList<Resource>();
+        resources = (List<Resource>) pdpRequest.getResources();
+        String attrValue = "";
+        if (resources != null) {
+            log.debug("Resources list size:" + resources.size());
+            for (Resource resource : resources) {
+                List<Attribute> attributes = new ArrayList<Attribute>();
+                attributes = (List<Attribute>) resource.getAttributes();
+                log.debug("Attributes list size:" + attributes.size());
+                for (Attribute attribute : attributes) {
+                    String attrId = "";
+                    String attrDataType = "";
+                    if (attribute.getAttributeId() != null) {
+                        attrId = attribute.getAttributeId().toString();
+                        log.debug("AttributeId: " + attrId);
+                    } else {
+                        log.debug("AttributeId not found in the Attribute");
+                    }
+                    if (attribute.getDataType() != null) {
+                        attrDataType = attribute.getDataType().toString();
+                        log.debug("Attribute DataType : " + attrDataType);
+                    } else {
+                        log.debug("DataType not found in the Attribute");
+                    }
+                    if ((attrId.trim().equals(AdapterPDPConstants.REQUEST_CONTEXT_ATTRIBUTE_RESOURCEID))
+]]>
+</codefragment>
+</duplication>
+<duplication lines="50" tokens="194">
+<file line="234" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<file line="284" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<codefragment>
+<![CDATA[
+            gov.hhs.fha.nhinc.common.nhinccommonentity.RespondingGatewayProvideAndRegisterDocumentSetSecuredResponseRequestType request,
+            AssertionType assertion, String direction, String _interface) {
+        LogEventRequestType result = null;
+        AuditMessageType auditMsg = null;
+
+        if (request == null) {
+            log.error("Requst Object was null");
+            return null;
+        }
+        if (assertion == null) {
+            log.error("Assertion was null");
+            return null;
+        }
+
+        // check to see that the required fields are not null
+        boolean missingReqFields = areRequiredResponseFieldsNull(request.getRegistryResponse(), assertion);
+
+        if (missingReqFields) {
+            log.error("One or more required fields was missing");
+            return null;
+        }
+
+        result = new LogEventRequestType();
+
+        auditMsg = new AuditMessageType();
+        // Create EventIdentification
+        CodedValueType eventID = getCodedValueTypeForXDRResponse();
+
+        EventIdentificationType oEventIdentificationType = getEventIdentificationType(eventID);
+        auditMsg.setEventIdentification(oEventIdentificationType);
+
+        ActiveParticipant participant = getActiveParticipant(assertion.getUserInfo());
+        auditMsg.getActiveParticipant().add(participant);
+        
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = getParticipantObjectIdentificationType("");
+        auditMsg.getParticipantObjectIdentification().add(participantObject);
+        
+        /* Create the AuditSourceIdentifierType object */
+        AuditSourceIdentificationType auditSource = getAuditSourceIdentificationType(assertion.getUserInfo());
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        result.setAuditMessage(auditMsg);
+        result.setDirection(direction);
+        result.setInterface(_interface);
+
+        return result;
+    }
+
+    public LogEventRequestType transformRequestToAuditMsg(
+]]>
+</codefragment>
+</duplication>
+<duplication lines="29" tokens="193">
+<file line="439" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PRPA201301Transforms.java"/>
+<file line="469" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PRPA201301Transforms.java"/>
+<codefragment>
+<![CDATA[
+    public static MFMIMT700701UV01AuthorOrPerformer copyAuthorOrPerformer(QUQIMT021001UV01AuthorOrPerformer orig) {
+        MFMIMT700701UV01AuthorOrPerformer result = new MFMIMT700701UV01AuthorOrPerformer();
+
+        result.setAssignedDevice(orig.getAssignedDevice());
+        result.setAssignedPerson(orig.getAssignedPerson());
+        result.setContextControlCode(orig.getContextControlCode());
+        result.setModeCode(orig.getModeCode());
+        result.setNoteText(orig.getNoteText());
+        result.setSignatureCode(orig.getSignatureCode());
+        result.setSignatureText(orig.getSignatureText());
+        result.setTime(orig.getTime());
+        result.setTypeCode(orig.getTypeCode());
+        result.setTypeId(orig.getTypeId());
+
+        result = HL7ArrayTransforms.copyNullFlavors(orig, result);
+
+        if (orig.getRealmCode() != null) {
+            for (CS item : orig.getRealmCode()) {
+                result.getRealmCode().add(item);
+            }
+        }
+        if (orig.getTemplateId() != null) {
+            for (II item : orig.getTemplateId()) {
+                result.getTemplateId().add(item);
+            }
+        }
+
+        return result;
+    }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="33" tokens="192">
+<file line="94" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/DocumentRetrieveTransforms.java"/>
+<file line="211" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/DocumentRetrieveTransforms.java"/>
+<codefragment>
+<![CDATA[
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_DOCRETRIEVE_REQUEST);
+        CodedValueType eventTypeCode = AuditDataTransformHelper.createCodeValueType(
+                AuditDataTransformConstants.EVENT_TYPE_CODE_DOCRETRIEVE,
+                AuditDataTransformConstants.EVENT_TYPE_CODE_SYS_NAME_DOCRETRIEVE,
+                AuditDataTransformConstants.EVENT_TYPE_CODE_SYS_NAME_DOCRETRIEVE_DISPNAME,
+                AuditDataTransformConstants.EVENT_TYPE_CODE_DOCRETRIEVE_DISPNAME);
+
+        EventIdentificationType eventIdentification = AuditDataTransformHelper.createEventIdentification(
+                AuditDataTransformConstants.EVENT_ACTION_CODE_READ,
+                AuditDataTransformConstants.EVENT_OUTCOME_INDICATOR_SUCCESS, eventId);
+        auditMsg.setEventIdentification(eventIdentification);
+
+        eventIdentification.getEventTypeCode().add(eventTypeCode);
+
+        // Create Active Participant Section
+        if (userInfo != null) {
+            AuditMessageType.ActiveParticipant participant = AuditDataTransformHelper.createActiveParticipantFromUser(
+                    userInfo, true);
+            auditMsg.getActiveParticipant().add(participant);
+        }
+
+        String uniquePatientId = "";
+        if (message != null && message.getMessage() != null && message.getMessage().getAssertion() != null
+                && message.getMessage().getAssertion().getUniquePatientId() != null
+                && message.getMessage().getAssertion().getUniquePatientId().size() > 0) {
+            uniquePatientId = message.getMessage().getAssertion().getUniquePatientId().get(0);
+            log.debug("=====>>>>> Create Audit Source Identification Section --> Assertion Unique Patient Id is ["
+                    + uniquePatientId + "]");
+        }
+
+        // Create Audit Source Identification Section
+        AuditSourceIdentificationType auditSrcId = null;
+        if (responseCommunityID != null) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="15" tokens="192">
+<file line="526" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PatientTransforms.java"/>
+<file line="541" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PatientTransforms.java"/>
+<codefragment>
+<![CDATA[
+            CE gender, TSExplicit birthTime, List<PRPAMT201301UV02OtherIDs> otherIds, II remotePatId) {
+        PRPAMT201302UV02OtherIDs convertedOtherIds = null;
+        if (otherIds != null && otherIds.size() > 0 && otherIds.get(0) != null && otherIds.get(0).getId() != null
+                && otherIds.get(0).getId().size() > 0 && otherIds.get(0).getId().get(0) != null
+                && NullChecker.isNotNullish(otherIds.get(0).getId().get(0).getExtension())) {
+            convertedOtherIds = createPRPAMT201302UVOtherIDs(otherIds.get(0).getId().get(0).getExtension(), remotePatId);
+        } else if (remotePatId != null && NullChecker.isNotNullish(remotePatId.getRoot())
+                && NullChecker.isNotNullish(remotePatId.getExtension())) {
+            convertedOtherIds = createPRPAMT201302UVOtherIDs(null, remotePatId);
+        }
+
+        return create201302PatientPerson(patName, gender, birthTime, convertedOtherIds);
+    }
+
+    public static JAXBElement<PRPAMT201302UV02PatientPatientPerson> create201302PatientPerson(
+]]>
+</codefragment>
+</duplication>
+<duplication lines="28" tokens="182">
+<file line="348" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="540" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+                            InternationalStringType docTitle = extrinsicObject.getName();
+                            if (docTitle != null) {
+                                log.debug("DocumentTitle for ExtrinsicObject " + i + ": "
+                                        + docTitle.getLocalizedString().get(0).getValue());
+                                doc.setDocumentTitle(docTitle.getLocalizedString().get(0).getValue());
+                            }
+
+                            // extract the document comments
+                            InternationalStringType docComments = extrinsicObject.getDescription();
+                            if (docComments != null) {
+                                log.debug("DocumentComments for ExtrinsicObject " + i + ": "
+                                        + docComments.getLocalizedString().get(0).getValue());
+                                doc.setComments(docComments.getLocalizedString().get(0).getValue());
+                            }
+
+                            // extract mimeType
+                            log.debug("Document mimeType for ExtrinsicObject " + i + ": "
+                                    + extrinsicObject.getMimeType());
+                            doc.setMimeType(extrinsicObject.getMimeType());
+
+                            // there are many metadata items at the extrinsicObject/document
+                            // level that we need to translate to the NHINC format
+                            List<oasis.names.tc.ebxml_regrep.xsd.rim._3.SlotType1> documentSlots = extrinsicObject
+                                    .getSlot();
+
+                            // extract intendedRecipient - format: organization|person
+                            String intendedRecipientValue = extractMetadataFromSlots(documentSlots,
+                                    XDS_INTENDED_RECIPIENT_SLOT, 0);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="34" tokens="168">
+<file line="693" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="1010" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+        for (ClassificationType classification : classifications) {
+            String classificationSchemeName = classification.getClassificationScheme();
+            log.debug("Found classificationScheme=" + classificationSchemeName);
+
+            if (classificationSchemeUUID.equals(classificationSchemeName)) {
+                if (classificationValueName.equals(XDS_NAME)) {
+                    classificationValue = classification.getName().getLocalizedString().get(0).getValue();
+                } else if (classificationValueName.equals(XDS_NODE_REPRESENTATION)) {
+                    classificationValue = classification.getNodeRepresentation();
+                } else if (classificationValueName.equals(XDS_CLASSIFIED_OBJECT)) {
+                    classificationValue = classification.getClassifiedObject();
+                } else if (classificationValueName.equals(XDS_CLASSIFICATION_ID)) {
+                    classificationValue = classification.getClassifiedObject();
+                }
+                break; // found desired classification, have values, exit loop
+            } // if (classificationSchemeUUID.equals(classificationSchemeName))
+        }
+        if (classificationValue != null && !classificationValue.equals("")) {
+            classificationValue = StringUtil.extractStringFromTokens(classificationValue, "'()");
+        }
+        log.debug(classificationValueName + ": " + classificationValue);
+        return classificationValue;
+    }
+
+    /**
+     * Extracts the valueIndex value from an XDS request slot for a given metadata name.
+     * 
+     * @param documentSlots A list of XDS metadata slots
+     * @param slotName The name of the slot containing the desired metadata item
+     * @param valueIndex For slot multivalued possibilities, the index value desired. If the value is < 0 then all
+     *            values in the value list are returned in a '~' delimited list.
+     * @return Returns the value of the first metadata value with the given metadata name. Null if not present.
+     */
+    private String extractMetadataFromSlots(List<SlotType1> documentSlots, String slotName, int valueIndex) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="33" tokens="166">
+<file line="70" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/SubscribeTransforms.java"/>
+<file line="66" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<file line="159" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        log.info("Entering transformNhinSubscribeRequestToAuditMessage() method.");
+        log.info("******************************************************************");
+
+        // Extract UserInfo from Message.Assertion
+        UserType userInfo = new UserType();
+        if (message != null && message.getMessage() != null && message.getMessage().getAssertion() != null
+                && message.getMessage().getAssertion().getUserInfo() != null) {
+            userInfo = message.getMessage().getAssertion().getUserInfo();
+        }
+
+        // Create EventIdentification
+        CodedValueType eventID = new CodedValueType();
+        eventID = AuditDataTransformHelper.createEventId(AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_SUB,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_SUBSCRIBE,
+                AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_SUB,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_SUBSCRIBE);
+        auditMsg.setEventIdentification(AuditDataTransformHelper.createEventIdentification(
+                AuditDataTransformConstants.EVENT_ACTION_CODE_CREATE,
+                AuditDataTransformConstants.EVENT_OUTCOME_INDICATOR_SUCCESS, eventID));
+
+        // Create Active Participant Section
+        if (userInfo != null) {
+            AuditMessageType.ActiveParticipant participant = AuditDataTransformHelper.createActiveParticipantFromUser(
+                    userInfo, true);
+            auditMsg.getActiveParticipant().add(participant);
+        }
+
+        /* Assign AuditSourceIdentification */
+        String communityId = "";
+        String communityName = "";
+        String patientId = "";
+
+        if ((message != null) && (message.getMessage() != null) && (message.getMessage().getSubscribe() != null)) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="28" tokens="166">
+<file line="159" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PatientTransforms.java"/>
+<file line="192" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PatientTransforms.java"/>
+<codefragment>
+<![CDATA[
+    public static PRPAMT201301UV02Patient createPRPAMT201301UVPatient(PRPAMT201310UV02Patient patient) {
+        PRPAMT201301UV02Patient result = new PRPAMT201301UV02Patient();
+
+        if (patient == null) {
+            return null;
+        }
+
+        result.setEffectiveTime(patient.getEffectiveTime());
+        if (patient.getProviderOrganization() != null) {
+            result.setProviderOrganization(patient.getProviderOrganization().getValue());
+        }
+
+        result.setStatusCode(patient.getStatusCode());
+        result.setTypeId(patient.getTypeId());
+        result.setVeryImportantPersonCode(patient.getVeryImportantPersonCode());
+
+        for (ADExplicit address : patient.getAddr()) {
+            result.getAddr().add(address);
+        }
+        for (TELExplicit telephone : patient.getTelecom()) {
+            result.getTelecom().add(telephone);
+        }
+
+        for (CE code : patient.getConfidentialityCode()) {
+            result.getConfidentialityCode().add(code);
+        }
+
+        result.setPatientPerson(create201301PatientPerson(patient.getPatientPerson().getValue()));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="55" tokens="162">
+<file line="632" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="948" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+        for (ExternalIdentifierType externalIdentifier : externalIdentifiers) {
+            String externalIdentifierName = externalIdentifier.getName().getLocalizedString().get(0).getValue();
+            log.debug("externalIdentifierName: " + externalIdentifierName);
+            if (metadataItemName.equalsIgnoreCase(externalIdentifierName)) {
+                metadataItemValue = externalIdentifier.getValue();
+                break;
+            }
+        }
+
+        return metadataItemValue;
+    }
+
+    /**
+     * This method extracts metadata from the XDS classification element given the slotname of the metadata item.
+     * 
+     * @param classifications A list of classifications to search through.
+     * @param classificationSchemeUUID The classification scheme idendifier to search for.
+     * @param slotName The name of the metadata item within the classification element.
+     * @param valueIndex In case there are multiple values for the metadata item, the option to choose a single value or
+     *            all values (i.e. -1).
+     * @return Returns the value of the metadata item found in the XDS classification element given the slotname.
+     */
+    private String extractClassificationMetadata(
+            List<oasis.names.tc.ebxml_regrep.xsd.rim._3.ClassificationType> classifications,
+            String classificationSchemeUUID, String slotName, int valueIndex) {
+        String classificationValue = null;
+
+        // loop through the classifications looking for the desired classification uuid
+        for (oasis.names.tc.ebxml_regrep.xsd.rim._3.ClassificationType classification : classifications) {
+            String classificationSchemeName = classification.getClassificationScheme();
+            if (classificationSchemeUUID.equals(classificationSchemeName)) {
+                classificationValue = extractMetadataFromSlots(classification.getSlot(), slotName, valueIndex);
+                break;
+            }
+        }
+
+        return classificationValue;
+    }
+
+    /**
+     * This method extracts classification element metadata for non-slot values given the classification code uuid. The
+     * following will be retrieved depending on the value of the classificationValueName: - the classification code
+     * value (nodeRepresentation) - the representation of the code (nodeRepresentationName) - the id of the
+     * extrinsicObject referenced by the given classification (classificationObject) - the id of the
+     * classificationObject element in the request (id)
+     * 
+     * @param classifications A list of classifications to search through.
+     * @param classificationSchemeUUID The classification scheme idendifier to search for.
+     * @param classificationValueName A string value indicating whether this method should return the classification
+     *            code representation, the code itself, the id of the classification element, or the id of the
+     *            extrinsicObject element that the classification refers to.
+     * @return Returns the value of the metadata item found in the XDS classification element given the classification
+     *         scheme and the name of the desired metadata element.
+     */
+    private String extractClassificationMetadata(List<ClassificationType> classifications,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="30" tokens="160">
+<file line="70" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/SubscribeTransforms.java"/>
+<file line="165" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/SubscribeTransforms.java"/>
+<file line="66" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<file line="159" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        log.info("Entering transformNhinSubscribeRequestToAuditMessage() method.");
+        log.info("******************************************************************");
+
+        // Extract UserInfo from Message.Assertion
+        UserType userInfo = new UserType();
+        if (message != null && message.getMessage() != null && message.getMessage().getAssertion() != null
+                && message.getMessage().getAssertion().getUserInfo() != null) {
+            userInfo = message.getMessage().getAssertion().getUserInfo();
+        }
+
+        // Create EventIdentification
+        CodedValueType eventID = new CodedValueType();
+        eventID = AuditDataTransformHelper.createEventId(AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_SUB,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_SUBSCRIBE,
+                AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_SUB,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_SUBSCRIBE);
+        auditMsg.setEventIdentification(AuditDataTransformHelper.createEventIdentification(
+                AuditDataTransformConstants.EVENT_ACTION_CODE_CREATE,
+                AuditDataTransformConstants.EVENT_OUTCOME_INDICATOR_SUCCESS, eventID));
+
+        // Create Active Participant Section
+        if (userInfo != null) {
+            AuditMessageType.ActiveParticipant participant = AuditDataTransformHelper.createActiveParticipantFromUser(
+                    userInfo, true);
+            auditMsg.getActiveParticipant().add(participant);
+        }
+
+        /* Assign AuditSourceIdentification */
+        String communityId = "";
+        String communityName = "";
+]]>
+</codefragment>
+</duplication>
+<duplication lines="37" tokens="159">
+<file line="741" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="1059" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+                    Iterator iter = slot.getValueList().getValue().iterator();
+                    while (iter.hasNext()) {
+                        String value = (String) iter.next();
+                        slotValues.append(value);
+                        counter++;
+                        if (counter < listSize) {
+                            slotValues.append(VALUE_LIST_SEPERATOR);
+                        }
+                    }
+
+                } else {
+                    if (slot.getValueList() != null && slot.getValueList().getValue() != null
+                            && slot.getValueList().getValue().size() > 0) {
+                        slotValue = slot.getValueList().getValue().get(valueIndex);
+                    } else {
+                        slotValue = "";
+                    }
+                }
+                break; // found desired slot, have values, exit loop
+            } // if (slotName.equals(slot.getName()))
+        } // for (oasis.names.tc.ebxml_regrep.xsd.rim._3.SlotType1 slot : documentSlots)
+        if (returnAllValues) {
+            slotValue = slotValues.toString();
+        }
+
+        log.debug(slotName + ": " + slotValue);
+        return slotValue;
+    }
+
+    /**
+     * Extracts the sourcePatientInfo pid value from an XDS request slot for the sourcePatientInfo element.
+     * 
+     * @param documentSlots A list of XDS metadata slots
+     * @param patientInfoName The name of the sourcePatientInfo pid containing the desired metadata item
+     * @return Returns the value of the first metadata value with the given metadata name. Null if not present.
+     */
+    private String extractPatientInfo(List<SlotType1> documentSlots, String patientInfoName) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="25" tokens="155">
+<file line="115" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/AdhocQueryTransformHelper.java"/>
+<file line="190" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/AdhocQueryTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+        log.debug("transformAdhocQueryResponseToCheckPolicyBase PatientId: " + sStrippedPatientId);
+
+        resource.getAttribute().add(
+                attrHelper.attributeFactory(PatientAssigningAuthorityAttributeId, Constants.DataTypeString, aaId));
+
+        resource.getAttribute().add(
+                attrHelper.attributeFactory(PatientIdAttributeId, Constants.DataTypeString, sStrippedPatientId));
+        request.getResource().add(resource);
+
+        SubjectHelper subjHelp = new SubjectHelper();
+        SubjectType subject = subjHelp.subjectFactory(event.getSendingHomeCommunity(), event.getMessage()
+                .getAssertion());
+        request.getSubject().add(subject);
+
+        AssertionHelper assertHelp = new AssertionHelper();
+        assertHelp.appendAssertionDataToRequest(request, event.getMessage().getAssertion());
+
+        CheckPolicyRequestType policyRequest = new CheckPolicyRequestType();
+        policyRequest.setRequest(request);
+        genericPolicyRequest.setRequest(request);
+        genericPolicyRequest.setAssertion(event.getMessage().getAssertion());
+        return genericPolicyRequest;
+    }
+
+    private static CheckPolicyRequestType transformAdhocQueryResponseInboundToCheckPolicy(
+]]>
+</codefragment>
+</duplication>
+<duplication lines="42" tokens="152">
+<file line="412" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<file line="453" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+    protected RequestType getRequestType(PRPAIN201306UV02 event, AssertionType assertion) {
+
+        addDebugLog("Begin -- PatientDiscoveryPolicyTransformHelper.getRequestType()");
+
+        RequestType request = new RequestType();
+
+        setSubjectToRequestType(event, request, assertion);
+
+        ResourceType resource = null;
+
+        AttributeHelper attrHelper = new AttributeHelper();
+
+        II ii = extractPatientIdentifier(event);
+
+        if (ii != null) {
+
+            resource = new ResourceType();
+
+            resource.getAttribute().add(
+                    attrHelper.attributeFactory(PatientAssigningAuthorityAttributeId, Constants.DataTypeString,
+                    ii.getRoot()));
+
+            String sStrippedPatientId = PatientIdFormatUtil.parsePatientId(ii.getExtension());
+
+            log.debug("transformSubjectAddedInToCheckPolicy: sStrippedPatientId = " + sStrippedPatientId);
+
+            resource.getAttribute().add(
+                    attrHelper.attributeFactory(PatientIdAttributeId, Constants.DataTypeString, sStrippedPatientId));
+
+            request.getResource().add(resource);
+
+        }
+
+        request.getResource().add(resource);
+
+        addDebugLog("End -- PatientDiscoveryPolicyTransformHelper.getRequestType()");
+
+        return request;
+
+    }
+
+    protected RequestType getRequestType(PRPAIN201305UV02 event, AssertionType assertion) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="22" tokens="130">
+<file line="97" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<file line="112" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/SubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        if (userInfo != null && userInfo.getOrg() != null) {
+
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                .createParticipantObjectIdentification(patientId);
+
+        // Fill in the message field with the contents of the event message
+        try {
+            JAXBContextHandler oHandler = new JAXBContextHandler();
+            JAXBContext jc = oHandler.getJAXBContext(org.oasis_open.docs.wsn.b_2.ObjectFactory.class,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="16" tokens="129">
+<file line="1100" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docregistry/adapter/AdapterComponentDocRegistryOrchImpl.java"/>
+<file line="59" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/util/format/DocumentClassCodeParser.java"/>
+<codefragment>
+<![CDATA[
+        if ((paramFormattedString != null) && (resultCollection != null)) {
+            if (paramFormattedString.startsWith("(")) {
+                String working = paramFormattedString.substring(1);
+                int endIndex = working.indexOf(")");
+                if (endIndex != -1) {
+                    working = working.substring(0, endIndex);
+                }
+                String[] multiValueString = working.split(",");
+                if (multiValueString != null) {
+                    for (int i = 0; i < multiValueString.length; i++) {
+                        String singleValue = multiValueString[i];
+                        if (singleValue != null) {
+                            singleValue = singleValue.trim();
+                        }
+                        if (singleValue.startsWith("'")) {
+                            singleValue = singleValue.substring(1);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="33" tokens="128">
+<file line="249" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<file line="299" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<file line="348" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<codefragment>
+<![CDATA[
+        boolean missingReqFields = areRequiredResponseFieldsNull(request.getRegistryResponse(), assertion);
+
+        if (missingReqFields) {
+            log.error("One or more required fields was missing");
+            return null;
+        }
+
+        result = new LogEventRequestType();
+
+        auditMsg = new AuditMessageType();
+        // Create EventIdentification
+        CodedValueType eventID = getCodedValueTypeForXDRResponse();
+
+        EventIdentificationType oEventIdentificationType = getEventIdentificationType(eventID);
+        auditMsg.setEventIdentification(oEventIdentificationType);
+
+        ActiveParticipant participant = getActiveParticipant(assertion.getUserInfo());
+        auditMsg.getActiveParticipant().add(participant);
+        
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = getParticipantObjectIdentificationType("");
+        auditMsg.getParticipantObjectIdentification().add(participantObject);
+        
+        /* Create the AuditSourceIdentifierType object */
+        AuditSourceIdentificationType auditSource = getAuditSourceIdentificationType(assertion.getUserInfo());
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        result.setAuditMessage(auditMsg);
+        result.setDirection(direction);
+        result.setInterface(_interface);
+
+        return result;
+    }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="12" tokens="122">
+<file line="113" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/model/EventCode.java"/>
+<file line="78" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/model/EventCodeParam.java"/>
+<codefragment>
+<![CDATA[
+        if ((this.getEventCode() == null) && (toCheck.getEventCode() != null)) {
+            return false;
+        } else if ((this.getEventCode() != null) && (!this.getEventCode().equals(toCheck.getEventCode()))) {
+            return false;
+        }
+
+        if ((this.getEventCodeScheme() == null) && (toCheck.getEventCodeScheme() != null)) {
+            return false;
+        } else if ((this.getEventCodeScheme() != null)
+                && (!this.getEventCodeScheme().equals(toCheck.getEventCodeScheme()))) {
+            return false;
+        }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="122">
+<file line="82" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7ReceiverTransforms.java"/>
+<file line="82" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7SenderTransforms.java"/>
+<codefragment>
+<![CDATA[
+        org.setDeterminerCode(HL7Constants.RECEIVER_DETERMINER_CODE);
+        II id = HL7DataTransformHelper.IIFactory(OID);
+        org.getId().add(id);
+
+        javax.xml.namespace.QName xmlqnameorg = new javax.xml.namespace.QName("urn:hl7-org:v3",
+                "representedOrganization");
+        JAXBElement<MCCIMT000200UV01Organization> orgElem = new JAXBElement<MCCIMT000200UV01Organization>(xmlqnameorg,
+                MCCIMT000200UV01Organization.class, org);
+        agent.setRepresentedOrganization(orgElem);
+        agent.getClassCode().add(HL7Constants.AGENT_CLASS_CODE);
+
+        javax.xml.namespace.QName xmlqnameagent = new javax.xml.namespace.QName("urn:hl7-org:v3", "asAgent");
+        JAXBElement<MCCIMT000200UV01Agent> agentElem = new JAXBElement<MCCIMT000200UV01Agent>(xmlqnameagent,
+                MCCIMT000200UV01Agent.class, agent);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="122">
+<file line="130" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7ReceiverTransforms.java"/>
+<file line="130" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7SenderTransforms.java"/>
+<codefragment>
+<![CDATA[
+        org.setDeterminerCode(HL7Constants.RECEIVER_DETERMINER_CODE);
+        II id = HL7DataTransformHelper.IIFactory(OID);
+        org.getId().add(id);
+
+        javax.xml.namespace.QName xmlqnameorg = new javax.xml.namespace.QName("urn:hl7-org:v3",
+                "representedOrganization");
+        JAXBElement<MCCIMT000100UV01Organization> orgElem = new JAXBElement<MCCIMT000100UV01Organization>(xmlqnameorg,
+                MCCIMT000100UV01Organization.class, org);
+        agent.setRepresentedOrganization(orgElem);
+        agent.getClassCode().add(HL7Constants.AGENT_CLASS_CODE);
+
+        javax.xml.namespace.QName xmlqnameagent = new javax.xml.namespace.QName("urn:hl7-org:v3", "asAgent");
+        JAXBElement<MCCIMT000100UV01Agent> agentElem = new JAXBElement<MCCIMT000100UV01Agent>(xmlqnameagent,
+                MCCIMT000100UV01Agent.class, agent);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="122">
+<file line="178" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7ReceiverTransforms.java"/>
+<file line="178" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7SenderTransforms.java"/>
+<codefragment>
+<![CDATA[
+        org.setDeterminerCode(HL7Constants.RECEIVER_DETERMINER_CODE);
+        II id = HL7DataTransformHelper.IIFactory(OID);
+        org.getId().add(id);
+
+        javax.xml.namespace.QName xmlqnameorg = new javax.xml.namespace.QName("urn:hl7-org:v3",
+                "representedOrganization");
+        JAXBElement<MCCIMT000300UV01Organization> orgElem = new JAXBElement<MCCIMT000300UV01Organization>(xmlqnameorg,
+                MCCIMT000300UV01Organization.class, org);
+        agent.setRepresentedOrganization(orgElem);
+        agent.getClassCode().add(HL7Constants.AGENT_CLASS_CODE);
+
+        javax.xml.namespace.QName xmlqnameagent = new javax.xml.namespace.QName("urn:hl7-org:v3", "asAgent");
+        JAXBElement<MCCIMT000300UV01Agent> agentElem = new JAXBElement<MCCIMT000300UV01Agent>(xmlqnameagent,
+                MCCIMT000300UV01Agent.class, agent);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="13" tokens="121">
+<file line="239" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7Extractors.java"/>
+<file line="312" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7Extractors.java"/>
+<codefragment>
+<![CDATA[
+        if (names.get(0).getUse().size() > 0) {
+            CeType nameType = new CeType();
+            nameType.setCode(names.get(0).getUse().get(0));
+            personName.setNameType(nameType);
+        }
+        // Name parts
+        if (names.size() > 0 && names.get(0).getContent() != null) {
+            List<Serializable> choice = names.get(0).getContent();
+            Iterator<Serializable> iterSerialObjects = choice.iterator();
+
+            String nameString = "";
+            EnExplicitFamily familyName = new EnExplicitFamily();
+            EnExplicitGiven givenName = new EnExplicitGiven();
+]]>
+</codefragment>
+</duplication>
+<duplication lines="22" tokens="120">
+<file line="805" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="1125" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+        for (ClassificationType classification : classifications) {
+            String classificationSchemeName = classification.getClassificationScheme();
+            if (XDS_EVENT_CODE_LIST_CLASSIFICATION.equals(classificationSchemeName)) {
+                log.debug("Found event code classification entry. Event code: "
+                        + classification.getNodeRepresentation());
+                EventCode eventCode = new EventCode();
+                eventCode.setDocument(doc);
+
+                // eventCode.setEventCodeId(getChildElementLongValue(eventCodeElement, "codeId"));
+                eventCode.setEventCode(classification.getNodeRepresentation());
+                eventCode.setEventCodeScheme(extractMetadataFromSlots(classification.getSlot(), XDS_CODING_SCHEME_SLOT,
+                        0));
+                eventCode.setEventCodeDisplayName(classification.getName().getLocalizedString().get(0).getValue());
+
+                eventCodes.add(eventCode);
+            }
+
+        } // for (oasis.names.tc.ebxml_regrep.xsd.rim._3.ClassificationType classification : classifications)
+
+        doc.setEventCodes(eventCodes);
+        log.debug("End extractEventCodes");
+    }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="23" tokens="118">
+<file line="96" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<file line="96" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<file line="189" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        String communityName = "";
+        if (userInfo != null && userInfo.getOrg() != null) {
+
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                .createParticipantObjectIdentification(patientId);
+
+        // Fill in the message field with the contents of the event message
+        try {
+            JAXBContextHandler oHandler = new JAXBContextHandler();
+            JAXBContext jc = oHandler.getJAXBContext(org.oasis_open.docs.wsn.b_2.ObjectFactory.class,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="15" tokens="116">
+<file line="282" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/util/DocumentLoadUtil.java"/>
+<file line="310" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/util/DocumentLoadUtil.java"/>
+<codefragment>
+<![CDATA[
+		Long value = null;
+		if ((element != null) && (childElementName != null)) {
+			if (log.isDebugEnabled()) {
+				log.debug("Extracting child element '" + childElementName
+						+ "' from '" + element.getTagName() + "'");
+			}
+			NodeList nodes = element.getElementsByTagName(childElementName);
+			if ((nodes != null) && (nodes.getLength() > 0)) {
+				Node node = nodes.item(0);
+				if (node instanceof Element) {
+					Element childElement = (Element) node;
+					String strVal = childElement.getTextContent();
+					if (strVal != null) {
+						try {
+							value = Long.parseLong(strVal);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="21" tokens="116">
+<file line="112" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/SubscribeTransforms.java"/>
+<file line="100" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<file line="193" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        if (userInfo != null && userInfo.getOrg() != null) {
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                .createParticipantObjectIdentification(patientId);
+
+        // Fill in the message field with the contents of the event message
+        try {
+            JAXBContextHandler oHandler = new JAXBContextHandler();
+            JAXBContext jc = oHandler.getJAXBContext(org.oasis_open.docs.wsn.b_2.ObjectFactory.class,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="34" tokens="115">
+<file line="195" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="242" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<codefragment>
+<![CDATA[
+                    criteria.add(Restrictions.lt("CreationTime", timestamp));
+                    asyncMsgRecs = criteria.list();
+                } else {
+                    log.error("Failed to obtain a session from the sessionFactory");
+                }
+            } else {
+                log.error("Session factory was null");
+            }
+
+            if (log.isDebugEnabled()) {
+                log.debug("Completed database record retrieve by timestamp. Results found: "
+                        + ((asyncMsgRecs == null) ? "0" : Integer.toString(asyncMsgRecs.size())));
+            }
+        } finally {
+            if (sess != null) {
+                try {
+                    sess.close();
+                } catch (Throwable t) {
+                    log.error("Failed to close session: " + t.getMessage(), t);
+                }
+            }
+        }
+
+        return asyncMsgRecs;
+    }
+
+    /**
+     * Query for Creation Time less than passed timestamp and status equal to Request Receieved Acknowledged
+     * [REQRCVDACK]
+     *
+     * @param timestamp A timestamp
+     * @return matching records
+     */
+    public List<AsyncMsgRecord> queryForExpired(Date timestamp) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="30" tokens="113">
+<file line="383" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<file line="424" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+        II ii = extractPatientIdentifier(event.getPRPAIN201305UV02());
+
+        if (ii != null) {
+
+            resource = new ResourceType();
+
+            resource.getAttribute().add(
+                    attrHelper.attributeFactory(PatientAssigningAuthorityAttributeId, Constants.DataTypeString,
+                    ii.getRoot()));
+
+            String sStrippedPatientId = PatientIdFormatUtil.parsePatientId(ii.getExtension());
+
+            log.debug("transformSubjectAddedInToCheckPolicy: sStrippedPatientId = " + sStrippedPatientId);
+
+            resource.getAttribute().add(
+                    attrHelper.attributeFactory(PatientIdAttributeId, Constants.DataTypeString, sStrippedPatientId));
+
+            request.getResource().add(resource);
+
+        }
+
+        request.getResource().add(resource);
+
+        addDebugLog("End -- PatientDiscoveryPolicyTransformHelper.getRequestType()");
+
+        return request;
+
+    }
+
+    protected RequestType getRequestType(PRPAIN201306UV02 event, AssertionType assertion) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="30" tokens="112">
+<file line="105" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/DocumentQueryTransforms.java"/>
+<file line="230" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/DocumentQueryTransforms.java"/>
+<codefragment>
+<![CDATA[
+            userInfo = message.getMessage().getAssertion().getUserInfo();
+        }
+
+        // Create Event Identification Section
+        // TODO: Determine what to do with Event Code and Event Code System (either auto-generate or map in
+        // AdhocQueryRequest
+        CodedValueType eventId = AuditDataTransformHelper.createEventId(
+                AuditDataTransformConstants.EVENT_ID_CODE_DOCQUERY,
+                AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_DOC,
+                AuditDataTransformConstants.EVENT_ID_CODE_SYS_NAME_DOC,
+                AuditDataTransformConstants.EVENT_ID_DISPLAY_NAME_DOCQUERY);
+        CodedValueType eventTypeCode = AuditDataTransformHelper.createCodeValueType(
+                AuditDataTransformConstants.EVENT_TYPE_CODE_DOCQUERY,
+                AuditDataTransformConstants.EVENT_TYPE_CODE_SYS_NAME_DOCQUERY,
+                AuditDataTransformConstants.EVENT_TYPE_CODE_SYS_NAME_DOCQUERY_DISPNAME,
+                AuditDataTransformConstants.EVENT_TYPE_CODE_DOCQUERY_DISPNAME);
+
+        EventIdentificationType eventIdentification = AuditDataTransformHelper.createEventIdentification(
+                AuditDataTransformConstants.EVENT_ACTION_CODE_EXECUTE,
+                AuditDataTransformConstants.EVENT_OUTCOME_INDICATOR_SUCCESS, eventId);
+        auditMsg.setEventIdentification(eventIdentification);
+
+        eventIdentification.getEventTypeCode().add(eventTypeCode);
+
+        // Create Active Participant Section
+        if (userInfo != null) {
+            AuditMessageType.ActiveParticipant participant = AuditDataTransformHelper.createActiveParticipantFromUser(
+                    userInfo, true);
+            auditMsg.getActiveParticipant().add(participant);
+        }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="20" tokens="112">
+<file line="215" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PRPA201301Transforms.java"/>
+<file line="284" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PRPA201301Transforms.java"/>
+<codefragment>
+<![CDATA[
+            }
+        }
+        if (original.getId() != null) {
+            result.getId().clear();
+            for (II item : original.getId()) {
+                result.getId().add(item);
+            }
+        }
+        if (original.getDataEnterer() != null) {
+            result.getDataEnterer().clear();
+            for (MFMIMT700711UV01DataEnterer item : original.getDataEnterer()) {
+                MFMIMT700701UV01DataEnterer newItem = copyDataEnterer(item);
+                result.getDataEnterer().add(newItem);
+            }
+        }
+
+        PRPAMT201301UV02Patient patient;
+        PRPAMT201306UV02QueryByParameter params;
+
+        params = original.getQueryByParameter().getValue();
+]]>
+</codefragment>
+</duplication>
+<duplication lines="31" tokens="111">
+<file line="86" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/EventCodeDao.java"/>
+<file line="125" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/EventCodeDao.java"/>
+<codefragment>
+<![CDATA[
+                    sess.saveOrUpdate(eventCode);
+                } else {
+                    getLogger().error("Failed to obtain a session from the sessionFactory");
+                }
+            } else {
+                getLogger().error("Session factory was null");
+            }
+        } finally {
+            if (trans != null) {
+                try {
+                    trans.commit();
+                } catch (Throwable t) {
+                    getLogger().error("Failed to commit transaction: " + t.getMessage(), t);
+                }
+            }
+            if (sess != null) {
+                try {
+                    sess.close();
+                } catch (Throwable t) {
+                    getLogger().error("Failed to close session: " + t.getMessage(), t);
+                }
+            }
+        }
+    }
+
+    /**
+     * Delete an event code record.
+     * 
+     * @param eventCode EventCode record to delete.
+     */
+    public void delete(EventCode eventCode) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="25" tokens="111">
+<file line="151" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<file line="210" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/XDRTransforms.java"/>
+<codefragment>
+<![CDATA[
+        CodedValueType eventID = getCodedValueTypeForXDRProxy();
+
+        EventIdentificationType oEventIdentificationType = getEventIdentificationType(eventID);
+        auditMsg.setEventIdentification(oEventIdentificationType);
+
+        ActiveParticipant participant = getActiveParticipant(assertion.getUserInfo());
+        auditMsg.getActiveParticipant().add(participant);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = getParticipantObjectIdentificationType(patId);
+        auditMsg.getParticipantObjectIdentification().add(participantObject);
+
+        /* Create the AuditSourceIdentifierType object */
+        AuditSourceIdentificationType auditSource = getAuditSourceIdentificationType(assertion.getUserInfo());
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        result.setAuditMessage(auditMsg);
+        result.setDirection(direction);
+        result.setInterface(_interface);
+
+        return result;
+    }
+
+    public LogEventRequestType transformRequestToAuditMsg(
+            gov.hhs.fha.nhinc.common.nhinccommonentity.RespondingGatewayProvideAndRegisterDocumentSetSecuredRequestType request,
+]]>
+</codefragment>
+</duplication>
+<duplication lines="30" tokens="110">
+<file line="383" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<file line="465" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/PatientDiscoveryPolicyTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+        II ii = extractPatientIdentifier(event.getPRPAIN201305UV02());
+
+        if (ii != null) {
+
+            resource = new ResourceType();
+
+            resource.getAttribute().add(
+                    attrHelper.attributeFactory(PatientAssigningAuthorityAttributeId, Constants.DataTypeString,
+                    ii.getRoot()));
+
+            String sStrippedPatientId = PatientIdFormatUtil.parsePatientId(ii.getExtension());
+
+            log.debug("transformSubjectAddedInToCheckPolicy: sStrippedPatientId = " + sStrippedPatientId);
+
+            resource.getAttribute().add(
+                    attrHelper.attributeFactory(PatientIdAttributeId, Constants.DataTypeString, sStrippedPatientId));
+
+            request.getResource().add(resource);
+
+        }
+
+        request.getResource().add(resource);
+
+        addDebugLog("End -- PatientDiscoveryPolicyTransformHelper.getRequestType()");
+
+        return request;
+
+    }
+
+    protected RequestType getRequestType(PRPAIN201306UV02 event, AssertionType assertion) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="17" tokens="109">
+<file line="51" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/DocRetrieveTransformHelper.java"/>
+<file line="43" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/NotifyTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+    public static CheckPolicyRequestType transformDocRetrieveToCheckPolicy(DocRetrieveEventType event) {
+        CheckPolicyRequestType genericPolicyRequest = new CheckPolicyRequestType();
+        // TODO: Need to handle DocumentSet
+        // DocRetrieveMessageType docRetrieve = event.getMessage();
+        RequestType request = new RequestType();
+
+        if (InboundOutboundChecker.IsInbound(event.getDirection())) {
+            request.setAction(ActionHelper.actionFactory(ActionInValue));
+        }
+        if (InboundOutboundChecker.IsOutbound(event.getDirection())) {
+            request.setAction(ActionHelper.actionFactory(ActionOutValue));
+        }
+
+        SubjectHelper subjHelp = new SubjectHelper();
+        SubjectType subject = subjHelp.subjectFactory(event.getSendingHomeCommunity(), event.getMessage()
+                .getAssertion());
+        request.getSubject().add(subject);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="16" tokens="107">
+<file line="649" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PatientTransforms.java"/>
+<file line="789" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PatientTransforms.java"/>
+<codefragment>
+<![CDATA[
+        if (birthPlace.getBirthplace() != null) {
+            result.setBirthplace(birthPlace.getBirthplace());
+        }
+        if (NullChecker.isNotNullish(birthPlace.getClassCode())) {
+            for (String code : birthPlace.getClassCode()) {
+                result.getClassCode().add(code);
+            }
+        }
+        javax.xml.namespace.QName xmlqname = new javax.xml.namespace.QName("urn:hl7-org:v3", "birthPlace");
+        JAXBElement<PRPAMT201301UV02BirthPlace> element = new JAXBElement<PRPAMT201301UV02BirthPlace>(xmlqname,
+                PRPAMT201301UV02BirthPlace.class, result);
+
+        return element;
+    }
+
+    public static JAXBElement<PRPAMT201301UV02Person> create201301PatientPerson(PRPAMT201310UV02Person person) {
+]]>
+</codefragment>
+</duplication>
+<duplication lines="25" tokens="105">
+<file line="517" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="614" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<codefragment>
+<![CDATA[
+                    sess.saveOrUpdate(asyncMsgRecord);
+                } else {
+                    log.error("Failed to obtain a session from the sessionFactory");
+                }
+            } else {
+                log.error("Session factory was null");
+            }
+        } finally {
+            if (trans != null) {
+                try {
+                    trans.commit();
+                } catch (Throwable t) {
+                    log.error("Failed to commit transaction: " + t.getMessage(), t);
+                }
+            }
+            if (sess != null) {
+                try {
+                    sess.close();
+                } catch (Throwable t) {
+                    log.error("Failed to close session: " + t.getMessage(), t);
+                }
+            }
+        }
+
+        log.debug("AsyncMsgRecordDao.save() - End");
+]]>
+</codefragment>
+</duplication>
+<duplication lines="25" tokens="105">
+<file line="70" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/DocumentDao.java"/>
+<file line="113" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/DocumentDao.java"/>
+<codefragment>
+<![CDATA[
+                    sess.saveOrUpdate(document);
+                } else {
+                    log.error("Failed to obtain a session from the sessionFactory");
+                }
+            } else {
+                log.error("Session factory was null");
+            }
+        } finally {
+            if (trans != null) {
+                try {
+                    trans.commit();
+                } catch (Throwable t) {
+                    log.error("Failed to commit transaction: " + t.getMessage(), t);
+                }
+            }
+            if (sess != null) {
+                try {
+                    sess.close();
+                } catch (Throwable t) {
+                    log.error("Failed to close session: " + t.getMessage(), t);
+                }
+            }
+        }
+
+        log.debug("Completed document save");
+]]>
+</codefragment>
+</duplication>
+<duplication lines="25" tokens="103">
+<file line="517" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="571" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="614" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="70" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/DocumentDao.java"/>
+<file line="113" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/DocumentDao.java"/>
+<codefragment>
+<![CDATA[
+                    sess.saveOrUpdate(asyncMsgRecord);
+                } else {
+                    log.error("Failed to obtain a session from the sessionFactory");
+                }
+            } else {
+                log.error("Session factory was null");
+            }
+        } finally {
+            if (trans != null) {
+                try {
+                    trans.commit();
+                } catch (Throwable t) {
+                    log.error("Failed to commit transaction: " + t.getMessage(), t);
+                }
+            }
+            if (sess != null) {
+                try {
+                    sess.close();
+                } catch (Throwable t) {
+                    log.error("Failed to close session: " + t.getMessage(), t);
+                }
+            }
+        }
+
+        log.debug("AsyncMsgRecordDao.save() - End");
+]]>
+</codefragment>
+</duplication>
+<duplication lines="17" tokens="103">
+<file line="281" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7Extractors.java"/>
+<file line="350" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7Extractors.java"/>
+<codefragment>
+<![CDATA[
+            if (nameString != null && hasName == false) {
+                log.debug("set org name text ");
+                personName.setFamilyName(nameString);
+            } else {
+                if (givenName.getContent() != null && givenName.getContent().length() > 0) {
+                    log.debug("set org name given ");
+                    personName.setGivenName(givenName.getContent());
+
+                }
+                if (familyName.getContent() != null && familyName.getContent().length() > 0) {
+                    log.debug("set org name family ");
+                    personName.setFamilyName(familyName.getContent());
+                }
+
+            }
+        }
+        log.debug("HL7Extractor.translatePNListtoPersonNameType() -- End");
+]]>
+</codefragment>
+</duplication>
+<duplication lines="20" tokens="103">
+<file line="140" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PRPA201302Transforms.java"/>
+<file line="160" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7PRPA201302Transforms.java"/>
+<codefragment>
+<![CDATA[
+            PRPAMT201301UV02Patient patient, String remotePatId, String remoteDeviceId) {
+        PRPAIN201302UV02MFMIMT700701UV01RegistrationEvent regevent = new PRPAIN201302UV02MFMIMT700701UV01RegistrationEvent();
+
+        regevent.getClassCode().add("REG");
+        regevent.getMoodCode().add("EVN");
+
+        II regId = new II();
+        regId.getNullFlavor().add("NA");
+        regevent.getId().add(regId);
+
+        regevent.setStatusCode(HL7DataTransformHelper.CSFactory("active"));
+
+        regevent.setSubject1(createPRPAIN201302UVMFMIMT700701UV01Subject2(patient, remotePatId, remoteDeviceId));
+
+        regevent.setCustodian(HL7CustodianTransforms.createMFMIMT700701UV01Custodian(localDeviceId));
+
+        return regevent;
+    }
+
+    public static PRPAIN201302UV02MFMIMT700701UV01RegistrationEvent createPRPAIN201302UVMFMIMT700701UV01RegistrationEvent(
+]]>
+</codefragment>
+</duplication>
+<duplication lines="10" tokens="102">
+<file line="298" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/DocumentProcessHelper.java"/>
+<file line="456" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/AdapterComponentDocRepositoryOrchImpl.java"/>
+<codefragment>
+<![CDATA[
+            for (int i = 0; i < identifiableObjectList.size(); i++) {
+                oasis.names.tc.ebxml_regrep.xsd.rim._3.ExtrinsicObjectType extrinsicObject = null;
+                log.debug("Item " + i + " identifiableObject is of DeclaredType: "
+                        + identifiableObjectList.get(i).getDeclaredType());
+
+                // the getValue method will return the non-JAXBElement<? extends...> object
+                Object tempObj = identifiableObjectList.get(i).getValue();
+                if (tempObj instanceof oasis.names.tc.ebxml_regrep.xsd.rim._3.ExtrinsicObjectType) {
+                    extrinsicObject = (ExtrinsicObjectType) tempObj;
+                    log.debug("extrinsicObject successfully populated");
+]]>
+</codefragment>
+</duplication>
+<duplication lines="15" tokens="102">
+<file line="86" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/callback/SamlConstants.java"/>
+<file line="204" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/nhinclib/NhincConstants.java"/>
+<codefragment>
+<![CDATA[
+    public static final String PAT_CORR_ACTION = "patientcorrelation";
+    public static final String ADAPTER_MPI_ACTION = "mpi";
+    public static final String XDR_ACTION = "xdr";
+    public static final String XDR_REQUEST_ACTION = "xdrrequest";
+    public static final String XDR_RESPONSE_ACTION = "xdrresponse";
+    public static final String USERNAME_ATTR = "urn:oasis:names:tc:xspa:1.0:subject:subject-id";
+    public static final String USER_ORG_ATTR = "urn:oasis:names:tc:xspa:1.0:subject:organization";
+    public static final String USER_ORG_ID_ATTR = "urn:oasis:names:tc:xspa:1.0:subject:organization-id";
+    public static final String HOME_COM_ID_ATTR = "urn:nhin:names:saml:homeCommunityId";
+    public static final String USER_ROLE_ATTR = "urn:oasis:names:tc:xacml:2.0:subject:role";
+    public static final String PURPOSE_ROLE_ATTR = "urn:oasis:names:tc:xspa:1.0:subject:purposeofuse";
+    public static final String PATIENT_ID_ATTR = "urn:oasis:names:tc:xacml:2.0:resource:resource-id";
+    public static final String ACCESS_CONSENT_ATTR = "AccessConsentPolicy";
+    public static final String INST_ACCESS_CONSENT_ATTR = "InstanceAccessConsentPolicy";
+    public static final String CE_CODE_ID = "code";
+]]>
+</codefragment>
+</duplication>
+<duplication lines="24" tokens="102">
+<file line="518" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="572" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="615" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/dao/AsyncMsgRecordDao.java"/>
+<file line="71" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/DocumentDao.java"/>
+<file line="114" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/dao/DocumentDao.java"/>
+<file line="167" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/patientcorrelation/nhinc/dao/PDDeferredCorrelationDao.java"/>
+<codefragment>
+<![CDATA[
+                } else {
+                    log.error("Failed to obtain a session from the sessionFactory");
+                }
+            } else {
+                log.error("Session factory was null");
+            }
+        } finally {
+            if (trans != null) {
+                try {
+                    trans.commit();
+                } catch (Throwable t) {
+                    log.error("Failed to commit transaction: " + t.getMessage(), t);
+                }
+            }
+            if (sess != null) {
+                try {
+                    sess.close();
+                } catch (Throwable t) {
+                    log.error("Failed to close session: " + t.getMessage(), t);
+                }
+            }
+        }
+
+        log.debug("AsyncMsgRecordDao.save() - End");
+]]>
+</codefragment>
+</duplication>
+<duplication lines="18" tokens="102">
+<file line="187" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<file line="96" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<file line="189" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/UnsubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        String communityName = "";
+        if (userInfo != null && userInfo.getOrg() != null) {
+
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                .createParticipantObjectIdentification(patientId);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="26" tokens="102">
+<file line="97" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/patientcorrelation/nhinc/parsers/PRPAIN201301UV/PRPAIN201301UVParser.java"/>
+<file line="48" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7Extractors.java"/>
+<codefragment>
+<![CDATA[
+    public static PRPAIN201301UV02MFMIMT700701UV01Subject1 ParseSubjectFromMessage(org.hl7.v3.PRPAIN201301UV02 message) {
+        // assume one subject for now
+
+        if (message == null) {
+            log.info("message is null - no patient");
+            return null;
+        }
+        PRPAIN201301UV02MFMIMT700701UV01ControlActProcess controlActProcess = message.getControlActProcess();
+        if (controlActProcess == null) {
+            log.info("controlActProcess is null - no patient");
+            return null;
+        }
+        // HL7Parser.PrintId(controlActProcess.getId(), "controlActProcess");
+
+        List<PRPAIN201301UV02MFMIMT700701UV01Subject1> subjects = controlActProcess.getSubject();
+        if ((subjects == null) || (subjects.size() == 0)) {
+            log.info("subjects is blank/null - no patient");
+            return null;
+        }
+
+        // for now, assume we only need one subject, this will need to be modified later
+        PRPAIN201301UV02MFMIMT700701UV01Subject1 subject = subjects.get(0);
+        // HL7Parser.PrintId(subject.getTypeId(), "subject");
+
+        return subject;
+    }
+]]>
+</codefragment>
+</duplication>
+<duplication lines="10" tokens="102">
+<file line="304" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7ArrayTransforms.java"/>
+<file line="134" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7ReceiverTransforms.java"/>
+<file line="134" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/subdisc/HL7SenderTransforms.java"/>
+<codefragment>
+<![CDATA[
+            javax.xml.namespace.QName xmlqnameorg = new javax.xml.namespace.QName("urn:hl7-org:v3",
+                    "representedOrganization");
+            JAXBElement<MCCIMT000100UV01Organization> orgElem = new JAXBElement<MCCIMT000100UV01Organization>(
+                    xmlqnameorg, MCCIMT000100UV01Organization.class, org);
+            agent.setRepresentedOrganization(orgElem);
+            agent.getClassCode().add(HL7Constants.AGENT_CLASS_CODE);
+
+            javax.xml.namespace.QName xmlqnameagent = new javax.xml.namespace.QName("urn:hl7-org:v3", "asAgent");
+            JAXBElement<MCCIMT000100UV01Agent> agentElem = new JAXBElement<MCCIMT000100UV01Agent>(xmlqnameagent,
+                    MCCIMT000100UV01Agent.class, agent);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="28" tokens="101">
+<file line="43" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/asyncmsgs/persistence/HibernateUtil.java"/>
+<file line="42" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/docrepository/adapter/persistence/HibernateUtil.java"/>
+<file line="42" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/patientcorrelation/nhinc/persistence/HibernateUtil.java"/>
+<file line="41" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/perfrepo/persistance/HibernateUtil.java"/>
+<codefragment>
+<![CDATA[
+public class HibernateUtil {
+    private static final SessionFactory sessionFactory;
+    private static Log log = LogFactory.getLog(HibernateUtil.class);
+    static {
+        try {
+            // Create the SessionFactory from hibernate.cfg.xml
+            sessionFactory = new Configuration().configure(getConfigFile()).buildSessionFactory();
+        } catch (Throwable ex) {
+            // Make sure you log the exception, as it might be swallowed
+            log.error("Initial SessionFactory creation failed." + ex);
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
+
+    /**
+     * Method returns an instance of Hibernate SessionFactory.
+     *
+     * @return SessionFactory
+     */
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    private static File getConfigFile() {
+        File result = null;
+
+        try {
+            result = HibernateAccessor.getInstance().getHibernateFile(NhincConstants.HIBERNATE_ASYNCMSGS_REPOSITORY);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="18" tokens="101">
+<file line="92" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<file line="183" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<file line="189" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/SubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+            patientId = message.getMessage().getAssertion().getUniquePatientId().get(0);
+        }
+
+        String communityId = "";
+        String communityName = "";
+        if (userInfo != null && userInfo.getOrg() != null) {
+
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="16" tokens="101">
+<file line="52" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/DocRetrieveTransformHelper.java"/>
+<file line="44" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/NotifyTransformHelper.java"/>
+<file line="66" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/policy/SubscribeTransformHelper.java"/>
+<codefragment>
+<![CDATA[
+        CheckPolicyRequestType genericPolicyRequest = new CheckPolicyRequestType();
+        // TODO: Need to handle DocumentSet
+        // DocRetrieveMessageType docRetrieve = event.getMessage();
+        RequestType request = new RequestType();
+
+        if (InboundOutboundChecker.IsInbound(event.getDirection())) {
+            request.setAction(ActionHelper.actionFactory(ActionInValue));
+        }
+        if (InboundOutboundChecker.IsOutbound(event.getDirection())) {
+            request.setAction(ActionHelper.actionFactory(ActionOutValue));
+        }
+
+        SubjectHelper subjHelp = new SubjectHelper();
+        SubjectType subject = subjHelp.subjectFactory(event.getSendingHomeCommunity(), event.getMessage()
+                .getAssertion());
+        request.getSubject().add(subject);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="17" tokens="100">
+<file line="188" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/NotifyTransforms.java"/>
+<file line="112" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCoreLib/src/main/java/gov/hhs/fha/nhinc/transform/audit/SubscribeTransforms.java"/>
+<codefragment>
+<![CDATA[
+        if (userInfo != null && userInfo.getOrg() != null) {
+
+            if (userInfo.getOrg().getHomeCommunityId() != null) {
+                communityId = userInfo.getOrg().getHomeCommunityId();
+            }
+            if (userInfo.getOrg().getName() != null) {
+                communityName = userInfo.getOrg().getName();
+            }
+        }
+
+        AuditSourceIdentificationType auditSource = AuditDataTransformHelper.createAuditSourceIdentification(
+                communityId, communityName);
+        auditMsg.getAuditSourceIdentification().add(auditSource);
+
+        /* Assign ParticipationObjectIdentification */
+        ParticipantObjectIdentificationType participantObject = AuditDataTransformHelper
+                .createParticipantObjectIdentification(patientId);
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>
