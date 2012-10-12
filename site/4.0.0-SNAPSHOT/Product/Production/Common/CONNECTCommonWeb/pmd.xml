@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2012-10-11T20:10:05.604">
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCommonWeb/src/main/java/gov/hhs/fha/nhinc/common/connectionmanager/NhincComponentConnectionManager.java">
+<violation beginline="55" endline="55" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.common.connectionmanager" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'javax.jws.WebService'
+</violation>
+<violation beginline="107" endline="107" begincolumn="55" endcolumn="55" rule="EmptyStatementNotInLoop" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.common.connectionmanager" class="NhincComponentConnectionManager" method="getBusinessEntity" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyStatementNotInLoop" priority="3">
+An empty statement (semicolon) not part of a loop
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCommonWeb/src/main/java/gov/hhs/fha/nhinc/common/propaccessor/NhincComponentPropAccessor.java">
+<violation beginline="51" endline="51" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Import Statement Rules" package="gov.hhs.fha.nhinc.common.propaccessor" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'javax.jws.WebService'
+</violation>
+</file>
+<file name="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Common/CONNECTCommonWeb/src/main/java/gov/hhs/fha/nhinc/common/propaccessor/PropertyAccessHelper.java">
+<violation beginline="325" endline="325" begincolumn="54" endcolumn="73" rule="AvoidThreadGroup" ruleset="Basic Rules" package="gov.hhs.fha.nhinc.common.propaccessor" class="PropertyAccessHelper" method="writePropertyFile" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#AvoidThreadGroup" priority="3">
+Avoid using java.lang.ThreadGroup; it is not thread safe
+</violation>
+</file>
+</pmd>
