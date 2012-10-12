@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>CONNECT Connection Manager Core - Checkstyle report</title>
+    <link>www.connectopensource.org/Product/Production/Services/ConnectionManagerCore</link>
+    <description>CONNECT Connection Manager Core - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2012</copyright>
+    <item>
+      <title>File: 5,
+             Errors: 133,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>www.connectopensource.org/Product/Production/Services/ConnectionManagerCore/checkstyle.html</link>
+      <description>
+        <p>Click <a href="www.connectopensource.org/Product/Production/Services/ConnectionManagerCore/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/ConnectionManagerCore/checkstyle.html#gov.hhs.fha.nhinc.connectmgr.uddi.proxy.UDDIFindBusinessProxyHPImpl.java">gov/hhs/fha/nhinc/connectmgr/uddi/proxy/UDDIFindBusinessProxyHPImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  21
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/ConnectionManagerCore/checkstyle.html#gov.hhs.fha.nhinc.connectmgr.uddi.proxy.UDDIFindBusinessProxyJuddiV3Impl.java">gov/hhs/fha/nhinc/connectmgr/uddi/proxy/UDDIFindBusinessProxyJuddiV3Impl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  21
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/ConnectionManagerCore/checkstyle.html#gov.hhs.fha.nhinc.connectmgr.uddi.proxy.UDDIFindBusinessProxyBase.java">gov/hhs/fha/nhinc/connectmgr/uddi/proxy/UDDIFindBusinessProxyBase.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  31
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/ConnectionManagerCore/checkstyle.html#gov.hhs.fha.nhinc.connectmgr.uddi.proxy.UDDIFindBusinessProxyServicePortDescriptor.java">gov/hhs/fha/nhinc/connectmgr/uddi/proxy/UDDIFindBusinessProxyServicePortDescriptor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="www.connectopensource.org/Product/Production/Services/ConnectionManagerCore/checkstyle.html#gov.hhs.fha.nhinc.connectmgr.uddi.proxy.UDDIFindBusinessProxyNoOpImpl.java">gov/hhs/fha/nhinc/connectmgr/uddi/proxy/UDDIFindBusinessProxyNoOpImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  38
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

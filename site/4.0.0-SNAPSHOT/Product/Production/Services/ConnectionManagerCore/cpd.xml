@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="37" tokens="185">
+<file line="62" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/ConnectionManagerCore/src/main/java/gov/hhs/fha/nhinc/connectmgr/uddi/proxy/UDDIFindBusinessProxyHPImpl.java"/>
+<file line="71" path="/Volumes/Macintosh HD2/dev/projects/CONNECT/CONNECT/Product/Production/Services/ConnectionManagerCore/src/main/java/gov/hhs/fha/nhinc/connectmgr/uddi/proxy/UDDIFindBusinessProxyJuddiV3Impl.java"/>
+<codefragment>
+<![CDATA[
+            FindBusiness oSearchParams = new FindBusiness();
+            oSearchParams.setMaxRows(100);
+            ServicePortDescriptor<UDDIInquiryPortType> portDescriptor = new UDDIFindBusinessProxyServicePortDescriptor();
+            CONNECTClient<UDDIInquiryPortType> client = getCONNECTClientUnsecured(portDescriptor, uddiInquiryUrl, null);
+            oBusinessList = (BusinessList) client.invokePort(UDDIInquiryPortType.class, "findBusiness", oSearchParams);
+        } catch (Exception e) {
+            String sErrorMessage = "Failed to call 'find_business' web service on the NHIN UDDI server.  Error: "
+                    + e.getMessage();
+            log.error(sErrorMessage, e);
+            throw new UDDIFindBusinessException(sErrorMessage, e);
+        }
+
+        return oBusinessList;
+    }
+
+    @Override
+    public BusinessDetail getBusinessDetail(GetBusinessDetail searchParams) throws UDDIFindBusinessException {
+
+        BusinessDetail businessDetail = null;
+        try {
+            loadProperties();
+
+            ServicePortDescriptor<UDDIInquiryPortType> portDescriptor = new UDDIFindBusinessProxyServicePortDescriptor();
+            CONNECTClient<UDDIInquiryPortType> client = getCONNECTClientUnsecured(portDescriptor, uddiInquiryUrl, null);
+            businessDetail = (BusinessDetail) client.invokePort(UDDIInquiryPortType.class, "getBusinessDetail",
+                    searchParams);
+
+        } catch (Exception e) {
+            String sErrorMessage = "Failed to call 'getBusinessDetail' web service on the NHIN UDDI server.  Error: "
+                    + e.getMessage();
+            log.error(sErrorMessage, e);
+            throw new UDDIFindBusinessException(sErrorMessage, e);
+        }
+
+        return businessDetail;
+    }
+}
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>
